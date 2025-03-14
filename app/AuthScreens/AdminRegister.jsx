@@ -6,7 +6,7 @@ import RegisterRestaurant from './../RegisterYourRestaurant/RegisterRestaurant';
 
 
 const AdminRegister = () => {
-  const router = useRouter(); // ✅ Moved outside useMemo
+  const router = useRouter(); 
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
