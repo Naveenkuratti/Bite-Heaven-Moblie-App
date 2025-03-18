@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { useRouter } from 'expo-router'; // If using Next.js, replace with 'next/router'
-
+import { useRouter } from 'expo-router'; 
 const cuisines = [
   'North Indian', 'Chinese', 'Fast Food', 'South Indian', 'Biryani', 'Pizza',
   'Bakery', 'Street Food', 'Burger', 'Mughlai', 'Momos', 'Sandwich', 'Mithai',
@@ -31,10 +30,10 @@ const App = () => {
   };
 
   const handleNext = () => {
-    router.push('/MenuOperationalDetails/Screen6'); // Update path accordingly
+    router.push('/MenuOperationalDetails/Screen6'); 
   };
 
-  // Filter cuisines based on search query
+  
   const filteredCuisines = cuisines.filter((cuisine) =>
     cuisine.toLowerCase().includes(searchQuery.toLowerCase())
   );

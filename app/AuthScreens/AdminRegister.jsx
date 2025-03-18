@@ -1,6 +1,6 @@
 
-import { 
-  View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ActivityIndicator 
+import {
+  View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ActivityIndicator
 } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
@@ -8,7 +8,7 @@ import { useRouter } from 'expo-router';
 import { registerAdmin } from "../api/adminregister"; // Import API function
 
 const AdminRegister = () => {
-  const router = useRouter(); 
+  const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -19,13 +19,13 @@ const AdminRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email: "",  
+    email: "",
     password: "",
     confirmPassword: "",
   });
   const handleRegister = async () => {
     setError(null);
-  
+
     if (!formData.name || !formData.phone || !formData.email || !formData.password) {
       setError("All fields are required");
       return;
@@ -34,9 +34,9 @@ const AdminRegister = () => {
       setError("Passwords do not match");
       return;
     }
-  
+
     setLoading(true);
-  
+
     try {
       console.log("Sending Data:", formData);
       const response = await registerAdmin({
@@ -45,7 +45,7 @@ const AdminRegister = () => {
         email: formData.email,
         password: formData.password,
       });
-  
+
       setSuccess(true);
       alert("Manager registered successfully!");
       router.push("../RegisterYourRestaurant/RegisterRestaurant");
@@ -58,7 +58,7 @@ const AdminRegister = () => {
       setLoading(false);
     }
   };
-  
+
 
   return (
     <SafeAreaView style={styles.container}>

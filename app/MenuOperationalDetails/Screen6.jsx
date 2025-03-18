@@ -3,12 +3,12 @@ import {
   View, Text, Switch, TouchableOpacity, Modal, FlatList, StyleSheet 
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { useRouter } from "expo-router"; // Ensure correct usage
+import { useRouter } from "expo-router"; 
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 const RestaurantTimings = () => {
-  const router = useRouter(); // Initialize router
+  const router = useRouter();
   const [timings, setTimings] = useState(
     days.map((day) => ({ day, isOpen: true, slots: [] }))
   );
@@ -25,13 +25,13 @@ const RestaurantTimings = () => {
     );
   };
 
-  // Open modal to set time for a day
+  
   const openTimeModal = (day) => {
     setSelectedDay(day);
     setModalVisible(true);
   };
 
-  // Add time slot to selected day's timings
+ 
   const addTimeSlot = () => {
     if (currentSlot.start && currentSlot.end) {
       setTimings((prev) =>
@@ -42,12 +42,12 @@ const RestaurantTimings = () => {
         )
       );
       setCurrentSlot({ start: "", end: "" });
-      setModalVisible(false); // Close modal after adding
+      setModalVisible(false); 
     }
   };
 
   const handleNext = () => {
-    router.push("/MenuOperationalDetails/Screen7"); // Ensure correct path
+    router.push("/MenuOperationalDetails/Screen7"); 
   };
 
   return (

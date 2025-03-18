@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
-import { getLogin } from './api/authApi'; // Import the API function
+import { getLogin } from './api/authApi';
 
-import {verifyOtp} from './api/verifyotp'
+import { verifyOtp } from './api/verifyotp'
 export default function Index() {
   const router = useRouter();
   const [activeButton, setActiveButton] = useState("login");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [otp, setOtp] = useState(""); // Updated to handle OTP as a string
-  const [password, setPassword] = useState(""); // To store password input
+  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
     if (activeButton === "login") {
@@ -23,31 +23,31 @@ export default function Index() {
 
   const Opt = async () => {
     if (activeButton !== "login") {
-      return; // Do nothing if not in user mode
+      return;
     }
-  
+
     if (phoneNumber.trim().length === 0) {
       alert('Please enter a valid phone number');
       return;
     }
-  
+
     try {
       const loginResponse = await getLogin(phoneNumber);
-  
+
       if (!loginResponse || !loginResponse.otp) {
         throw new Error('Invalid OTP response');
       }
-  
-      setOtp(loginResponse.otp.toString()); // Store OTP as a string
+
+      setOtp(loginResponse.otp.toString());
       alert(`OTP sent: ${loginResponse.otp}`);
-  
+
     } catch (error) {
       console.error("Error fetching OTP:", error);
       alert("Error sending OTP. Please try again.");
     }
   };
-  
-  
+
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <TouchableOpacity onPress={() => router.push('/')}>
@@ -68,23 +68,23 @@ export default function Index() {
             {activeButton === "admin" ? (
               <>
                 <Text style={styles.prefix}>+91</Text>
-                <TextInput 
-                  style={styles.phoneInput} 
-                  placeholder="Admin Phone" 
-                  placeholderTextColor="black" 
-                  keyboardType="phone-pad" 
+                <TextInput
+                  style={styles.phoneInput}
+                  placeholder="Admin Phone"
+                  placeholderTextColor="black"
+                  keyboardType="phone-pad"
                 />
               </>
             ) : (
               <>
                 <Text style={styles.prefix}>+91</Text>
-                <TextInput 
-                  style={styles.phoneInput} 
-                  placeholder="User Phone" 
-                  placeholderTextColor="black" 
-                  keyboardType="phone-pad" 
+                <TextInput
+                  style={styles.phoneInput}
+                  placeholder="User Phone"
+                  placeholderTextColor="black"
+                  keyboardType="phone-pad"
                   value={phoneNumber}
-                  onChangeText={setPhoneNumber} 
+                  onChangeText={setPhoneNumber}
                 />
               </>
             )}
@@ -98,9 +98,9 @@ export default function Index() {
               style={styles.passwordInput}
               placeholder={activeButton === "admin" ? "Admin Password" : "Enter OTP"}
               placeholderTextColor="#666"
-              secureTextEntry={activeButton === "admin"} // For admin, use password field
-              value={activeButton === "login" ? password : otp} // Update value based on mode
-              onChangeText={activeButton === "login" ? setPassword : setOtp} // Handle OTP input
+              secureTextEntry={activeButton === "admin"}
+              value={activeButton === "login" ? password : otp}
+              onChangeText={activeButton === "login" ? setPassword : setOtp}
             />
             <Icon name="lock" size={20} color="#FF8C00" style={styles.lockIcon} />
           </View>
