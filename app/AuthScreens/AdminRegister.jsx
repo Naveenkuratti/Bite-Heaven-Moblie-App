@@ -1,21 +1,64 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native";
+
+import { 
+  View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ActivityIndicator 
+} from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from 'expo-router';
-import RegisterRestaurant from './../RegisterYourRestaurant/RegisterRestaurant';
-
+import { registerAdmin } from "../api/adminregister"; // Import API function
 
 const AdminRegister = () => {
   const router = useRouter(); 
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",  
     password: "",
     confirmPassword: "",
   });
+  const handleRegister = async () => {
+    setError(null);
+  
+    if (!formData.name || !formData.phone || !formData.email || !formData.password) {
+      setError("All fields are required");
+      return;
+    }
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+  
+    setLoading(true);
+  
+    try {
+      console.log("Sending Data:", formData);
+      const response = await registerAdmin({
+        name: formData.name,
+        phoneNumber: formData.phone,
+        email: formData.email,
+        password: formData.password,
+      });
+  
+      setSuccess(true);
+      alert("Manager registered successfully!");
+      router.push("../RegisterYourRestaurant/RegisterRestaurant");
+    } catch (err) {
+      console.error("Registration error:", err);
+      setError(err.message || "Registration failed");
+      // Allow user to proceed even if registration fails
+      router.push("../RegisterYourRestaurant/RegisterRestaurant");
+    } finally {
+      setLoading(false);
+    }
+  };
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,11 +72,13 @@ const AdminRegister = () => {
       </View>
 
       <View style={styles.formContainer}>
+        {error && <Text style={styles.errorText}>{error}</Text>}
+
         <View style={styles.inputGroup}>
           <Text style={styles.label}>NAME</Text>
           <TextInput
             style={styles.input}
-            placeholder="john doe"
+            placeholder="John Doe"
             placeholderTextColor="#A0A0A0"
             value={formData.name}
             onChangeText={(text) => setFormData({ ...formData, name: text })}
@@ -53,11 +98,25 @@ const AdminRegister = () => {
         </View>
 
         <View style={styles.inputGroup}>
+          <Text style={styles.label}>EMAIL</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="johndoe@example.com"
+            placeholderTextColor="#A0A0A0"
+            keyboardType="email-address"
+            value={formData.email}
+            onChangeText={(text) => setFormData({ ...formData, email: text })}
+          />
+        </View>
+
+        <View style={styles.inputGroup}>
           <Text style={styles.label}>PASSWORD</Text>
           <View style={styles.passwordContainer}>
             <TextInput
               style={styles.passwordInput}
               secureTextEntry={!showPassword}
+              placeholder="********"
+              placeholderTextColor="#A0A0A0"
               value={formData.password}
               onChangeText={(text) => setFormData({ ...formData, password: text })}
             />
@@ -68,11 +127,13 @@ const AdminRegister = () => {
         </View>
 
         <View style={styles.inputGroup}>
-          <Text style={styles.label}>RE-TYPE PASSWORD</Text>
+          <Text style={styles.label}>CONFIRM PASSWORD</Text>
           <View style={styles.passwordContainer}>
             <TextInput
               style={styles.passwordInput}
               secureTextEntry={!showConfirmPassword}
+              placeholder="********"
+              placeholderTextColor="#A0A0A0"
               value={formData.confirmPassword}
               onChangeText={(text) => setFormData({ ...formData, confirmPassword: text })}
             />
@@ -82,8 +143,8 @@ const AdminRegister = () => {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.registerButton} onPress={() => router.push("../RegisterYourRestaurant/RegisterRestaurant")}>
-          <Text style={styles.registerButtonText}>Register</Text>
+        <TouchableOpacity style={styles.registerButton} onPress={handleRegister} disabled={loading}>
+          {loading ? <ActivityIndicator color="white" /> : <Text style={styles.registerButtonText}>Register</Text>}
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -156,6 +217,12 @@ const styles = StyleSheet.create({
     padding: 16,
     fontSize: 16,
   },
+  errorText: {
+    color: "red",
+    textAlign: "center",
+    marginBottom: 10,
+    fontSize: 14,
+  },
   registerButton: {
     backgroundColor: "#FF6B2C",
     borderRadius: 12,
@@ -170,4 +237,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default  AdminRegister;
+export default AdminRegister;

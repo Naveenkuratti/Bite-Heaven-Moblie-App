@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
 import { getLogin } from './api/authApi'; // Import the API function
-import axios from 'axios';
+
 import {verifyOtp} from './api/verifyotp'
 export default function Index() {
   const router = useRouter();
