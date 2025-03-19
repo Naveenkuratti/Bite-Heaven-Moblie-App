@@ -13,8 +13,7 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <ScrollView showsVerticalScrollIndicator={false}>
-        
-        {/* Header */}
+    
         <View style={styles.header}>
           <View style={styles.headerTop}>
             <View style={styles.locationContainer}>
@@ -26,11 +25,11 @@ export default function Home() {
           
           <Text style={styles.title}>Bite Heaven</Text>
           
-          {/* Search Bar */}
+          
           <View style={styles.searchContainer}>
             <TextInput 
               style={styles.searchInput}
-              placeholder="Search for restaurants & rooms"
+              placeholder= "Search for restaurants & rooms"
             />
             <View style={styles.searchIconsContainer}>
               <Feather name="search" size={20} color="black" style={styles.searchIcon} />
@@ -38,7 +37,7 @@ export default function Home() {
             </View>
           </View>
           
-          {/* Filter Options */}
+     
           <Text style={styles.filterText}>
             Filter by Type</Text>
             <View style={styles.filterOptions}>
@@ -52,14 +51,13 @@ export default function Home() {
 
         </View>
         
-        {/* Divider with text */}
+        
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
           <Text style={styles.dividerText}>EXCLUSIVE OFFERINGS</Text>
           <View style={styles.divider} />
         </View>
         
-        {/* Exclusive Offerings */}
         <View style={styles.offeringsContainer}>
           {[
             { label: "Special Deals", image: require('../../assets/images/User1.png') },
@@ -77,8 +75,7 @@ export default function Home() {
          
           <View style={styles.divider} />
         </View>
-        
-        {/* Promotional Banner */}
+   
         <View style={styles.promotionContainer}>
          
           <Image 
@@ -88,8 +85,7 @@ export default function Home() {
 
         
         </View>
-        
-        {/* All Restaurants Section */}
+    
         <View style={styles.allRestaurantsContainer}>
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
@@ -104,24 +100,24 @@ export default function Home() {
               <Feather name="chevron-down" size={20} color="black" style={styles.icon} />
             </TouchableOpacity>
 
-            {/* Sort by */}
+            
             <TouchableOpacity style={styles.filterButton}>
               <Text style={styles.filterButtonText}>Sort by</Text>
               <Feather name="chevron-down" size={20} color="black" style={styles.icon} />
             </TouchableOpacity>
 
-            {/* Cuisines */}
+            
             <TouchableOpacity style={styles.filterButton}>
               <Text style={styles.filterButtonText}>Cuisines</Text>
               <Feather name="chevron-down" size={20} color="black" style={styles.icon} />
             </TouchableOpacity>
 
-            {/* New on Bite */}
+           
             <TouchableOpacity style={styles.filterButton}>
               <Text style={styles.filterButtonText}>New on Bite</Text>
             </TouchableOpacity>
 
-            {/* Ratings 4.5+ */}
+           
             <TouchableOpacity style={styles.filterButton}>
               <Text style={styles.filterButtonText}>Ratings 4.5+</Text>
             </TouchableOpacity>

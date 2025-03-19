@@ -133,4 +133,4 @@ const styles = StyleSheet.create({
   filterOptions: { flexDirection: 'row', marginTop: 5 },
   filterOption: { paddingVertical: 5, paddingHorizontal: 15, marginRight: 10, borderRadius: 5 },
   activeFilter: { backgroundColor: 'rgba(0,0,0,0.1)' },
-});
+});     
