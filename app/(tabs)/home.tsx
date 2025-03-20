@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>    
     
         <View style={styles.header}>
           <View style={styles.headerTop}>
