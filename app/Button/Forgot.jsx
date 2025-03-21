@@ -8,7 +8,6 @@ const [phoneNumber, setPhoneNumber] = useState("");
 const [newPassword, setNewPassword] = useState("");
 const [confirmPassword, setConfirmPassword] = useState("");
 
-
 const  router=useRouter();
 const handleSubmit = () => {
 

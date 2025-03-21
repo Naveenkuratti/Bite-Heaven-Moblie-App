@@ -5,7 +5,7 @@ import {
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from 'expo-router';
-import { registerAdmin } from "../api/adminregister"; // Import API function
+import { registerAdmin } from "../api/adminregister"; 
 
 const AdminRegister = () => {
   const router = useRouter();

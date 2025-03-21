@@ -19,7 +19,7 @@ export default function Home() {
             <View style={styles.locationContainer}>
               <Text style={styles.locationText}>Location</Text>
               <Feather name="chevron-down" size={20} color="black" />
-            </View>
+            </View> 
             
           </View>
           
