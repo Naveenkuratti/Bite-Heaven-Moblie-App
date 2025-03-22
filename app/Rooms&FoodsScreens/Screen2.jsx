@@ -11,17 +11,17 @@ const Information = () => {
 
   const handleNext = () => {
     if (!restaurantName.trim()) {
-      // Show an alert if the restaurant name is empty
+     
       Alert.alert('Error', 'Please enter a valid restaurant name.');
     } else {
-      // Navigate to the next page if the restaurant name is provided
+    
       router.push('/RestaurantInformation/Screen2');
     }
   };
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+   
       <View style={styles.header}>
         <View style={styles.headerContent}>
           <TouchableOpacity onPress={() => router.push('/Service')}>
@@ -32,7 +32,7 @@ const Information = () => {
         </View>
       </View>
 
-      {/* Form Content */}
+     
       <View style={styles.formContainer}>
         <View style={styles.inputSection}>
           <Text style={styles.label}>Hotel Name Dining & Room</Text>
@@ -46,7 +46,7 @@ const Information = () => {
           />
         </View>
 
-        {/* Next Button */}
+      
         <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>

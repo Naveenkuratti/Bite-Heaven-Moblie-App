@@ -1,20 +1,4 @@
-// import { View } from "react-native";
-// import { useRouter } from "expo-router";
-// import SplashScreen from "../Button/SplashScreen"; // ✅ Correct import
 
-// export default function Select() {
-//   const router = useRouter();
-
-//   const handleNext = () => {
-//     router.push("/Rooms&FoodsScreens/Screen2");
-//   };
-
-//   return (
-//     <View>
-//       <SplashScreen  /> 
-//     </View>
-//   );
-// }
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from "react-native";
 import { ArrowLeft } from "react-native-feather";
 import { useRouter } from 'expo-router';
