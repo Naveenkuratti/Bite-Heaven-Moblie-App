@@ -62,7 +62,7 @@ export default function User1() {
             />
             <Text style={styles.offeringText}>Special Deals</Text>
           </TouchableOpacity>
-          
+        
           <TouchableOpacity style={styles.offeringItem}>
             <Image 
               source={{ uri: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wBu66c6sagGg8FPssaj4eeuTfBT1AB.png' }} 
