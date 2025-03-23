@@ -10,7 +10,7 @@ const UploadRestaurantImages = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleNext = () => {
-    router.push('/MenuOperationalDetails/Screen2'); // Replace with your actual navigation path
+    router.push('/MenuOperationalDetails/Screen2'); 
   };
 
   return (
