@@ -6,6 +6,9 @@ import { useRouter } from 'expo-router';
 import { getLogin } from './api/authApi';
 
 import { verifyOtp } from './api/verifyotp'
+
+
+
 export default function Index() {
   const router = useRouter();
   const [activeButton, setActiveButton] = useState("login");
