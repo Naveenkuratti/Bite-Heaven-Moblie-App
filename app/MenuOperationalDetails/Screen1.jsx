@@ -41,7 +41,7 @@ const UploadRestaurantImages = () => {
           <Text style={styles.uploadSubtext}>jpeg, png or jpg formats up to 5MB</Text>
         </TouchableOpacity>
 
-        {/* Guidelines Link */}
+      
         <TouchableOpacity onPress={() => setModalVisible(true)}>
           <Text style={styles.guidelinesLink}>Guidelines to upload restaurant images</Text>
         </TouchableOpacity>
