@@ -47,17 +47,17 @@ const UploadRestaurantImages = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Restaurant ID Bar */}
+      
       <View style={styles.restaurantIdBar}>
         <Text style={styles.restaurantIdText}>Restaurant ID {restaurantId}</Text>
       </View>
 
-      {/* Next Button */}
+    
       <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
 
-      {/* Image Upload Guidelines Modal */}
+      
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
