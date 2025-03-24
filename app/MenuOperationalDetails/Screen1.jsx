@@ -15,7 +15,7 @@ const UploadRestaurantImages = () => {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
@@ -27,14 +27,14 @@ const UploadRestaurantImages = () => {
         </View>
       </View>
 
-      {/* Content Section */}
+      
       <View style={styles.content}>
         <Text style={styles.title}>Add restaurant images</Text>
         <Text style={styles.subtitle}>
           Upload at least one entrance image of your restaurant, along with interior images, for your Bite Heaven page.
         </Text>
 
-        {/* Upload Section */}
+        
         <TouchableOpacity style={styles.uploadBox}>
           <Image source={require('../../assets/images/iconimage.jpg')} style={styles.uploadIcon} />
           <Text style={styles.uploadText}>Add restaurant images</Text>
