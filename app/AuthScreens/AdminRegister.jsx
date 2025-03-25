@@ -1,6 +1,5 @@
 
-import {
-  View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ActivityIndicator
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, ActivityIndicator
 } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
