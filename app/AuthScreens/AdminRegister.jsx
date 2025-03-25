@@ -52,7 +52,7 @@ const AdminRegister = () => {
     } catch (err) {
       console.error("Registration error:", err);
       setError(err.message || "Registration failed");
-      // Allow user to proceed even if registration fails
+     
       router.push("../RegisterYourRestaurant/RegisterRestaurant");
     } finally {
       setLoading(false);

@@ -4,16 +4,16 @@ import { useRouter } from 'expo-router';
 import { useState } from "react";
 
 const Service = () => {
-  const router = useRouter(); // useRouter inside the component
+  const router = useRouter(); 
 
-  // Step completion states
+  
   const [isRestaurantInfoCompleted, setIsRestaurantInfoCompleted] = useState(false);
   const [isMenuDetailsCompleted, setIsMenuDetailsCompleted] = useState(false);
   const [isDocumentsCompleted, setIsDocumentsCompleted] = useState(false);
 
   return (
     <ScrollView style={styles.container}>
-      {/* Header */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.push('/')}> 
           <ArrowLeft color="white" size={24} />
@@ -22,11 +22,11 @@ const Service = () => {
         <Text style={styles.headerSubtitle}>0% commission for the 1st month, for new restaurant partners in selected cities</Text>
       </View>
 
-      {/* Main Content */}
+      
       <View style={styles.content}>
         <View style={styles.infoContainer}>
 
-          {/* Step 1: Restaurant Information */}
+        
           <TouchableOpacity style={styles.infoItem}>
             <View style={styles.iconBox}><Text style={styles.emoji}>🍽️</Text></View>
             <View style={styles.textContainer}>
@@ -47,7 +47,7 @@ const Service = () => {
             </View>
           </TouchableOpacity>
 
-          {/* Step 2: Menu & Operational Details */}
+          
           <TouchableOpacity style={styles.infoItem}>
             <View style={styles.iconBox}><Text style={styles.emoji}>📄</Text></View>
             <View style={styles.textContainer}>
@@ -67,7 +67,7 @@ const Service = () => {
             </View>
           </TouchableOpacity>
 
-          {/* Step 3: Restaurant Document */}
+          
           <TouchableOpacity style={styles.infoItem}>
             <View style={styles.iconBox}><Text style={styles.emoji}>📋</Text></View>
             <View style={styles.textContainer}>
@@ -87,12 +87,12 @@ const Service = () => {
 
         </View>
 
-        {/* Document Requirements */}
+        
         <TouchableOpacity style={styles.requirementsButton}>
           <Text style={styles.requirementsText}>Document required for registration</Text>
         </TouchableOpacity>
 
-        {/* Required Documents List */}
+      
         <View style={styles.documentList}>
           <Text style={styles.documentItem}>✓ PAN Card</Text>
           <Text style={styles.documentItem}>✓ Menu details and one dish image</Text>
