@@ -21,7 +21,7 @@ export default function Index() {
     } else {
       alert('Logged in as Admin');
     }
-  };
+  };  
 
   const Opt = async () => {
     if (activeButton !== "login") {
