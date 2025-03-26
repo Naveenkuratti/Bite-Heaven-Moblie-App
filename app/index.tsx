@@ -5,7 +5,6 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
 import { getLogin } from './api/authApi';
 
-import { verifyOtp } from './api/verifyotp'
 
 
 
