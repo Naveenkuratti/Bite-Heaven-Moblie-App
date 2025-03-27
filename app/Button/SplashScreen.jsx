@@ -19,7 +19,7 @@ const Service = () => {
           <ArrowLeft color="white" size={24} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Get started it takes only 10 minutes</Text>
-        <Text style={styles.headerSubtitle}>0% commission for the 1st month, for new restaurant partners in selected cities</Text>
+        <Text style={styles.headerSubtitle}>0% commission for the 1st month for new restaurant partners in selected cities</Text>
       </View>
 
       
