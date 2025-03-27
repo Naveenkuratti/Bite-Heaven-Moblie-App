@@ -96,7 +96,7 @@ const Service = () => {
         <View style={styles.documentList}>
           <Text style={styles.documentItem}>✓ PAN Card</Text>
           <Text style={styles.documentItem}>✓ Menu details and one dish image</Text>
-          <Text style={styles.documentItem}>✓ GST Number, if applicable</Text>
+          <Text style={styles.documentItem}>✓ GST Number if applicable</Text>
           <Text style={styles.documentItem}>✓ FSSAI License</Text>
           <Text style={styles.documentItem}>✓ Bank account details</Text>
         </View>
