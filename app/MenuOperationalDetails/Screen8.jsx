@@ -9,7 +9,7 @@ const SuccessScreen = () => {
   useEffect(() => {
    
     const timer = setTimeout(() => {
-      router.push("/Button/SplashScreen"); 
+      router.push("/Button/SplashScreen");
     }, 2000);
 
     return () => clearTimeout(timer); 
