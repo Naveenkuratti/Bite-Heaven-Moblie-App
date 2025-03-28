@@ -17,10 +17,10 @@ const SuccessScreen = () => {
 
   return (
     <LinearGradient colors={["#D9FFD9", "#FFFFFF"]} style={styles.container}>
-      {/* Checkmark Icon */}
+     
       <Image source={require("../../assets/images/check.png")} style={styles.checkmark} />
 
-      {/* Success Message */}
+    
       <Text style={styles.message}>Menu and operational details added</Text>
     </LinearGradient>
   );
