@@ -9,7 +9,7 @@ const SuccessScreen = () => {
   useEffect(() => {
    
     const timer = setTimeout(() => {
-      router.push("/Button/SplashScreen"); // Update with the correct route
+      router.push("/Button/SplashScreen"); 
     }, 2000);
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
