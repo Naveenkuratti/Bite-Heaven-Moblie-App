@@ -7,7 +7,7 @@ const SuccessScreen = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Wait for 5 seconds, then navigate to SplashScreen
+   
     const timer = setTimeout(() => {
       router.push("/Button/SplashScreen"); // Update with the correct route
     }, 2000);
