@@ -12,7 +12,7 @@ const SuccessScreen = () => {
       router.push("/Button/SplashScreen"); 
     }, 2000);
 
-    return () => clearTimeout(timer); // Cleanup timer on unmount
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
