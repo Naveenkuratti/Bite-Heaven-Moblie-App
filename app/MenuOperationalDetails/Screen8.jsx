@@ -21,7 +21,7 @@ const SuccessScreen = () => {
       <Image source={require("../../assets/images/check.png")} style={styles.checkmark} />
 
     
-      <Text style={styles.message}>Menu and operational details </Text>
+      <Text style={styles.message}>Menu and operational details added </Text>
     </LinearGradient>
   );
 };
