@@ -19,7 +19,7 @@ const cuisines = [
 const App = () => {
   const [selectedCuisines, setSelectedCuisines] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const router = useRouter(); // Initialize router
+  const router = useRouter(); 
 
   const handleSelectCuisine = (item) => {
     if (selectedCuisines.includes(item)) {
