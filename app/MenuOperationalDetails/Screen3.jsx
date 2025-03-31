@@ -8,12 +8,12 @@ const MenuImagesScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleNext = () => {
-    router.push('/MenuOperationalDetails/Screen4'); // Update path accordingly
+    router.push('/MenuOperationalDetails/Screen4'); 
   };
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+  
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
@@ -25,36 +25,35 @@ const MenuImagesScreen = () => {
         </View>
       </View>
 
-      {/* Content Section */}
+      
       <View style={styles.content}>
         <Text style={styles.title}>Add menu images</Text>
         <Text style={styles.subtitle}>
           These will be used to create your in-app menu for online ordering.
         </Text>
 
-        {/* Upload Section */}
+      
         <TouchableOpacity style={styles.uploadBox}>
           <Image source={require('../../assets/images/iconimage.jpg')} style={styles.uploadIcon} />
           <Text style={styles.uploadText}>Add menu images</Text>
           <Text style={styles.uploadSubtext}>jpeg, png or jpg formats up to 5MB</Text>
         </TouchableOpacity>
 
-        {/* Guidelines Link */}
         <TouchableOpacity onPress={() => setModalVisible(true)}>
           <Text style={styles.guidelinesLink}>Guidelines to upload menu images</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Next Button */}
+
       <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
 
-      {/* Image Upload Guidelines Modal */}
+   
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            {/* Close Button */}
+          
             <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
               <X color="black" size={24} />
             </TouchableOpacity>
