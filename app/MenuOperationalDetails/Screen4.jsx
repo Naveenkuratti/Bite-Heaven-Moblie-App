@@ -8,12 +8,12 @@ const AddRestaurant = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleNext = () => {
-    router.push('/MenuOperationalDetails/Screen5'); // Update path accordingly
+    router.push('/MenuOperationalDetails/Screen5'); 
   };
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
@@ -25,36 +25,36 @@ const AddRestaurant = () => {
         </View>
       </View>
 
-      {/* Content Section */}
+      
       <View style={styles.content}>
         <Text style={styles.title}>Add restaurant profile image</Text>
         <Text style={styles.subtitle}>
           This will be your restaurant's profile picture on Bite Heaven, so use your best food shot!
         </Text>
 
-        {/* Upload Section */}
+      
         <TouchableOpacity style={styles.uploadBox}>
           <Image source={require('../../assets/images/iconimage.jpg')} style={styles.uploadIcon} />
           <Text style={styles.uploadText}>Add restaurant images</Text>
           <Text style={styles.uploadSubtext}>jpeg, png or jpg formats up to 5MB</Text>
         </TouchableOpacity>
 
-        {/* Guidelines Link */}
+     
         <TouchableOpacity onPress={() => setModalVisible(true)}>
           <Text style={styles.guidelinesLink}>Guidelines to upload restaurant images</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Next Button */}
+      
       <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
 
-      {/* Image Upload Guidelines Modal */}
+    
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            {/* Close Button */}
+         
             <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
               <X color="black" size={24} />
             </TouchableOpacity>
