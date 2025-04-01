@@ -9,7 +9,7 @@ import ServiceSelectionScreen from './../Button/Service';
 const [isSidebarVisible, setSidebarVisible] = useState(false);
   const [restaurantName, setRestaurantName] = useState('');
   const [restaurantType, setRestaurantType] = useState('');
-  // Ensure navigation is defined
+
   const router=useRouter();
   const profileImage = require('../../assets/images/food.png');
   const bannerImage = require('../../assets/images/image5.jpg');
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   bannerImage: {
     width: '100%',  
     height: '100%',
-    opacity: 0.7, // Adjust opacity for better visibility
+    opacity: 0.7,
   },
   menuIconContainer: {
     position: 'absolute',
