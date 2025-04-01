@@ -30,7 +30,7 @@ const PanDetailsScreen = () => {
         </View>
       </View>
 
-      {/* Form Content */}
+
       <View style={styles.content}>
         <Text style={styles.title}>PAN Details</Text>
         <Text style={styles.subtitle}>
