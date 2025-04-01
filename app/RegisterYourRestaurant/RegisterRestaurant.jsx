@@ -22,7 +22,7 @@ const RegisterRestaurant = () => {
 
   return (
     <ScrollView style={styles.container}>
-      {/* Top Image */}
+    
       <View style={styles.bannerContainer}>
         <Image source={bannerImage} style={styles.bannerImage} />
         <TouchableOpacity onPress={toggleSidebar} style={styles.menuIconContainer}>
@@ -30,7 +30,7 @@ const RegisterRestaurant = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Banner Content */}
+    
 
      
       <View style={styles.bannerContent}>
@@ -57,13 +57,13 @@ const RegisterRestaurant = () => {
 
       {isSidebarVisible && (
         <View style={styles.sidebar}>
-          {/* Sidebar Header */}
+          
           <View style={styles.sidebarHeader}>
             <Image source={profileImage} style={styles.profileImage} />
             <Text style={styles.sidebarTitle}>Welcome, User!</Text>
           </View>
 
-          {/* Input Fields */}
+        
           <Text style={styles.sidebarTitle}>Enter Details</Text>
           <TextInput
             style={styles.input}
@@ -78,14 +78,14 @@ const RegisterRestaurant = () => {
             onChangeText={setRestaurantType}
           />
 
-          {/* Close Button */}
+        
           <TouchableOpacity style={styles.closeButton} onPress={toggleSidebar}>
             <Text style={styles.closeButtonText}>Sign out</Text>
           </TouchableOpacity>
         </View>
       )}
 
-      {/* Get Started Section */}
+      
       <View style={styles.infoSection}>
         <Text style={styles.infoTitle}>Get Started – it only takes 10 minutes</Text>
         <Text style={styles.infoSubtitle}>Please make sure you have the following:</Text>
