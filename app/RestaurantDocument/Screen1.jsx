@@ -59,14 +59,14 @@ const PanDetailsScreen = () => {
           onChangeText={setBusinessAddress}
         />
 
-        {/* Upload Box */}
+        
         <TouchableOpacity style={styles.uploadBox}>
           <Image source={require("../../assets/images/iconimage.jpg")} style={styles.uploadIcon} />
           <Text style={styles.uploadText}>Upload Your PAN</Text>
           <Text style={styles.uploadSubtext}>JPEG, PNG, or JPG formats up to 5MB</Text>
         </TouchableOpacity>
 
-        {/* Guidelines Link */}
+       
         <TouchableOpacity onPress={() => setIsModalVisible(true)}>
           <Text style={styles.guidelinesLink}>Guidelines to Upload PAN Images</Text>
         </TouchableOpacity>
