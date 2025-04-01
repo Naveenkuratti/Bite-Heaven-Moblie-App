@@ -19,7 +19,7 @@ const PanDetailsScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Header Section */}
+  
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
@@ -72,7 +72,7 @@ const PanDetailsScreen = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Modal for Upload Guidelines */}
+      
       <Modal visible={isModalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
