@@ -16,13 +16,13 @@ const FilterScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Filter Button */}
+    
       <TouchableOpacity style={styles.filterButton} onPress={() => setModalVisible(true)}>
         <Text style={styles.filterButtonText}>Filter</Text>
         <Feather name="chevron-down" size={20} color="black" style={styles.icon} />
       </TouchableOpacity>
 
-      {/* Filter Modal */}
+      
       <Modal
         animationType="slide"
         transparent={true}
@@ -31,7 +31,7 @@ const FilterScreen = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            {/* Header */}
+            
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Filter by</Text>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
@@ -39,7 +39,7 @@ const FilterScreen = () => {
               </TouchableOpacity>
             </View>
 
-            {/* Sidebar Menu */}
+            
             <ScrollView horizontal style={styles.sidebar}>
               <TouchableOpacity style={styles.sidebarItem}>
                 <Text style={styles.sidebarText}>Sort by</Text>
@@ -58,7 +58,7 @@ const FilterScreen = () => {
               </TouchableOpacity>
             </ScrollView>
 
-            {/* Filter Options */}
+          
             <ScrollView style={styles.optionsContainer}>
               {filterOptions.map((option, index) => (
                 <TouchableOpacity
@@ -74,7 +74,7 @@ const FilterScreen = () => {
               ))}
             </ScrollView>
 
-            {/* Bottom Buttons */}
+           
             <View style={styles.bottomButtons}>
               <TouchableOpacity onPress={() => setSelectedOption(null)}>
                 <Text style={styles.clearText}>Clear all</Text>
