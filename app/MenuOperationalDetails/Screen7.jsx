@@ -19,7 +19,7 @@ const DeviceSelectionScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+     
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
@@ -31,12 +31,12 @@ const DeviceSelectionScreen = () => {
         </View>
       </View>
 
-      {/* Scrollable Content */}
+   
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        {/* Title */}
+      
         <Text style={styles.title}>Select the device type you will use for online ordering</Text>
 
-        {/* Web Option - Now Appears First */}
+        
         <TouchableOpacity
           style={[styles.deviceOption, selectedDevice === "web" && styles.selectedOption]}
           onPress={() => handleDeviceSelect("web")}
@@ -45,7 +45,7 @@ const DeviceSelectionScreen = () => {
           <Text style={styles.deviceText}>Bite Heaven restaurant partner web dashboard</Text>
         </TouchableOpacity>
 
-        {/* Mobile Option - Now Appears Below */}
+        
         <TouchableOpacity
           style={[styles.deviceOption, selectedDevice === "mobile" && styles.selectedOption]}
           onPress={() => handleDeviceSelect("mobile")}
@@ -57,12 +57,12 @@ const DeviceSelectionScreen = () => {
         </TouchableOpacity>
       </ScrollView>
 
-      {/* Next Button - Stays at Bottom */}
+      
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.nextButton}
           onPress={handleNext}
-          disabled={!selectedDevice} // Disables the button but doesn't change color
+          disabled={!selectedDevice} 
         >
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>

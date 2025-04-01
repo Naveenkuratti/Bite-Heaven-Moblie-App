@@ -16,7 +16,7 @@ const RestaurantTimings = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [currentSlot, setCurrentSlot] = useState({ start: "", end: "" });
 
-  // Toggle Open/Close for a specific day
+  
   const toggleSwitch = (index) => {
     setTimings((prev) =>
       prev.map((item, i) =>
@@ -70,7 +70,7 @@ const RestaurantTimings = () => {
         )}
       />
 
-      {/* Modal for Adding Timings */}
+   
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -107,7 +107,7 @@ const RestaurantTimings = () => {
         </View>
       </Modal>
 
-      {/* Next Button */}
+    
       <View style={styles.footer}>
         <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
           <Text style={styles.nextText}>Next</Text>
@@ -117,7 +117,7 @@ const RestaurantTimings = () => {
   );
 };
 
-// Styles
+
 const styles = StyleSheet.create({
   container: {
     padding: 20,
