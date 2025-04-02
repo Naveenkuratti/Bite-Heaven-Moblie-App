@@ -64,7 +64,6 @@ const GSTDetailsScreen = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Modal for GST Guidelines */}
       <Modal visible={isModalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -78,7 +77,7 @@ const GSTDetailsScreen = () => {
         </View>
       </Modal>
 
-      {/* Next Button */}
+      
       <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
