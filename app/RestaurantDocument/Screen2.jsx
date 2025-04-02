@@ -17,7 +17,7 @@ const GSTDetailsScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Header Section */}
+  
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
@@ -28,14 +28,13 @@ const GSTDetailsScreen = () => {
         </View>
       </View>
 
-      {/* GST Details Section */}
+     
       <View style={styles.content}>
         <Text style={styles.title}>GST Details (if applicable)</Text>
         <Text style={styles.subtitle}>
           This should be linked to the PAN provided earlier for tax calculations
         </Text>
 
-        {/* Radio Button Selection */}
         <Text style={styles.question}>Are you GST registered?</Text>
         <View style={styles.radioContainer}>
           <TouchableOpacity style={styles.radioItem} onPress={() => setGstRegistered("yes")}>
@@ -48,7 +47,7 @@ const GSTDetailsScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* GST Number Input */}
+        
         {gstRegistered === "yes" && (
           <TextInput
             style={styles.input}
@@ -59,7 +58,7 @@ const GSTDetailsScreen = () => {
           />
         )}
 
-        {/* Guidelines Link */}
+   
         <TouchableOpacity onPress={() => setIsModalVisible(true)}>
           <Text style={styles.guidelinesLink}>Guidelines to Enter GST Number</Text>
         </TouchableOpacity>
