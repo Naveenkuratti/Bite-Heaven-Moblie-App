@@ -8,7 +8,7 @@ const Nextpage2 = () => {
     
   return (
     <View style={styles.container}>
-      {/* Header Section */}
+     
       <View style={styles.header}>
          <TouchableOpacity onPress={() => router.push('/Service')}>
                     <ArrowLeft size={24} />
