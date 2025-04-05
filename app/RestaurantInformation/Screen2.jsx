@@ -19,13 +19,12 @@ const Nextpage2 = () => {
         </View>
       </View>
 
-      {/* Owner Details Section */}
       <Text style={styles.sectionTitle}>Owner details</Text>
       <Text style={styles.subText}>
         Bite Heaven will use these details for all business communications and updates
       </Text>
 
-      {/* Full Name Input */}
+  
       <TextInput
         style={styles.input}
         placeholder="Full Name*"
@@ -40,7 +39,7 @@ const Nextpage2 = () => {
         placeholderTextColor="#999"
       />
 
-      {/* Phone Number Input with Verify Button */}
+     
       <View style={styles.phoneContainer}>
         <Text style={styles.countryCode}>+91</Text>
         <TextInput
@@ -54,7 +53,7 @@ const Nextpage2 = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Next Button */}
+     
       <TouchableOpacity style={styles.nextButton} onPress={() => router.push('/RestaurantInformation/Screen3')}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
