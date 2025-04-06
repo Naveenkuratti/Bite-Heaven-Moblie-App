@@ -6,9 +6,9 @@ import { useState } from "react";
 import Screen2 from './Screen2';
 
 const Service = () => {
-  const router = useRouter(); // useRouter inside the component
+  const router = useRouter(); 
 
-  // Step completion states
+  
   const [isRestaurantInfoCompleted, setIsRestaurantInfoCompleted] = useState(false);
   const [isMenuDetailsCompleted, setIsMenuDetailsCompleted] = useState(false);
   const [isDocumentsCompleted, setIsDocumentsCompleted] = useState(false);
