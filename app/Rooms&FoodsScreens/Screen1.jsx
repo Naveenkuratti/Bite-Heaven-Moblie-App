@@ -15,7 +15,7 @@ const Service = () => {
 
   return (
     <ScrollView style={styles.container}>
-      {/* Header */}
+     
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.push('/')}> 
           <ArrowLeft color="white" size={24} />
