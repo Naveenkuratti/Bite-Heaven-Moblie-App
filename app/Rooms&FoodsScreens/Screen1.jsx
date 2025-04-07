@@ -69,7 +69,7 @@ const Service = () => {
             </View>
           </TouchableOpacity>
 
-          {/* Step 3: Restaurant Document */}
+         
           <TouchableOpacity style={styles.infoItem}>
             <View style={styles.iconBox}><Text style={styles.emoji}>📋</Text></View>
             <View style={styles.textContainer}>
