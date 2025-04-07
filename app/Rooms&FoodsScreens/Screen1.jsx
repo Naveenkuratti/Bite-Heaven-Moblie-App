@@ -28,7 +28,7 @@ const Service = () => {
       <View style={styles.content}>
         <View style={styles.infoContainer}>
 
-          {/* Step 1: Restaurant Information */}
+         
           <TouchableOpacity style={styles.infoItem}>
             <View style={styles.iconBox}><Text style={styles.emoji}>🍽️</Text></View>
             <View style={styles.textContainer}>
