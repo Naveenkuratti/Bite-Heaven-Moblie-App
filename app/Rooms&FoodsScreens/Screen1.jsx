@@ -24,7 +24,7 @@ const Service = () => {
         <Text style={styles.headerSubtitle}>0% commission for the 1st month, for new restaurant partners in selected cities</Text>
       </View>
 
-      {/* Main Content */}
+     
       <View style={styles.content}>
         <View style={styles.infoContainer}>
 
@@ -49,7 +49,7 @@ const Service = () => {
             </View>
           </TouchableOpacity>
 
-          {/* Step 2: Menu & Operational Details */}
+         
           <TouchableOpacity style={styles.infoItem}>
             <View style={styles.iconBox}><Text style={styles.emoji}>📄</Text></View>
             <View style={styles.textContainer}>
