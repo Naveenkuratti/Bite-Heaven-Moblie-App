@@ -10,7 +10,7 @@ Features
 ✅ Menu Management (Dishes, categories, pricing updates)
 ✅ Order Management (Takeaway, dine-in, delivery tracking)
 ✅ Payment Integration (Stripe, Razorpay, etc.)
-✅ Staff Management (Roles, permissions, schedules)
+✅ Staff Management (Roles, permissions, schedules)           
 ✅ Customer Feedback & Ratings
 ✅ Push Notifications (Order status, promotions)
 ✅ Admin Dashboard (Analytics, reports, user management)
