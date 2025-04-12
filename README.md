@@ -1,7 +1,7 @@
 Bite-Heaven-Mobile-App 🍽️📱
 A comprehensive hotel and restaurant management mobile application built with Expo.                                       
-
-Overview                                
+                                                                                            
+Overview                                                  
 Bite-Heaven-Mobile-App is a full-featured hotel and restaurant management application designed to streamline reservations, menu management, orders, staff handling, and more. Built using React Native (Expo) for the frontend and a robust backend, this app ensures seamless operations for hotels and restaurants.
    
 Features
@@ -10,7 +10,7 @@ Features
 ✅ Menu Management (Dishes, categories, pricing updates)
 ✅ Order Management (Takeaway, dine-in, delivery tracking)
 ✅ Payment Integration (Stripe, Razorpay, etc.)
-✅ Staff Management (Roles, permissions, schedules)
+✅ Staff Management (Roles, permissions, schedules)           
 ✅ Customer Feedback & Ratings
 ✅ Push Notifications (Order status, promotions)
 ✅ Admin Dashboard (Analytics, reports, user management)
