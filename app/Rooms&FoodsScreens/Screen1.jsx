@@ -89,12 +89,10 @@ const Service = () => {
 
         </View>
 
-        {/* Document Requirements */}
         <TouchableOpacity style={styles.requirementsButton}>
           <Text style={styles.requirementsText}>Document required for registration</Text>
         </TouchableOpacity>
 
-        {/* Required Documents List */}
         <View style={styles.documentList}>
           <Text style={styles.documentItem}>✓ PAN Card</Text>
           <Text style={styles.documentItem}>✓ Menu details and one dish image</Text>
