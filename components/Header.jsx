@@ -5,7 +5,7 @@ import {
   View,
   TouchableOpacity,                           
   Image,
-  ImageBackground,
+  ImageBackground,             
   TextInput,
   ScrollView,
   SafeAreaView,
