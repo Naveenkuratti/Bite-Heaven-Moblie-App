@@ -80,7 +80,7 @@ export default function User1() {
           </TouchableOpacity>
         </View>
         
-        {/* Promotional Banner */}
+       
         <View style={styles.promotionContainer}>
           <Image 
             source={{ uri: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wBu66c6sagGg8FPssaj4eeuTfBT1AB.png' }} 
