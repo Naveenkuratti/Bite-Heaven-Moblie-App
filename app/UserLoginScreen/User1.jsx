@@ -91,11 +91,10 @@ export default function User1() {
           </TouchableOpacity>
         </View>
         
-        {/* All Restaurants Section */}
         <View style={styles.allRestaurantsContainer}>
           <Text style={styles.allRestaurantsTitle}>ALL RESTAURANTS</Text>
           
-          {/* Filter Options */}
+       
           <View style={styles.filterButtonsContainer}>
             {["Filter", "Sort by", "Cuisines", "New on Bite", "Ratings 4.5+"].map((item, index) => (
               <TouchableOpacity key={index} style={styles.filterButton}>
