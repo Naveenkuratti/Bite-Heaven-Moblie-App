@@ -14,7 +14,7 @@ export default function Profile() {
 
   return (
     <ScrollView style={styles.container}>
-      {/* Profile Header */}
+     
       <View style={styles.profileHeader}>
         <View style={styles.avatarPlaceholder} />
         <View>
@@ -28,7 +28,7 @@ export default function Profile() {
               </TouchableOpacity>
       </View>
 
-      {/* Bookings */}
+    
       <Text style={styles.sectionTitle}>All bookings</Text>
       <View style={styles.row}>
         <TouchableOpacity style={styles.card}><Text>Table bookings</Text></TouchableOpacity>
