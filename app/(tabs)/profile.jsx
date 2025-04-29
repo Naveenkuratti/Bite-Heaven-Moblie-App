@@ -1,13 +1,4 @@
-// import { View, Text } from 'react-native'
-// import React from 'react'
 
-// export default function Profile() {
-//   return (
-//     <View>
-//       <Text>P</Text>
-//     </View>
-//   )
-// }
 
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
@@ -15,10 +6,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 
 export default function Profile() {
-  const router = useRouter(); // <-- missing line
+  const router = useRouter(); 
 
   const handleNext = () => {
-    router.push('/profilesection/editscreen'); // Update the path accordingly
+    router.push('/profilesection/editscreen'); 
   };
 
   return (
