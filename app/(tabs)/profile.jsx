@@ -75,7 +75,7 @@ export default function Profile() {
         </TouchableOpacity>
       ))}
 
-      {/* Logout */}
+     
       <TouchableOpacity style={styles.logout}>
         <Text style={{ color: 'red' }}>Logout</Text>
       </TouchableOpacity>
