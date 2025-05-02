@@ -101,7 +101,7 @@ import {
   
         <Text style={styles.sectionTitle}>Invoice Details</Text>
   
-        {/* State Picker */}
+        
         <View style={styles.pickerContainer}>
           <Picker
             selectedValue={state}
@@ -114,7 +114,7 @@ import {
           </Picker>
         </View>
   
-        {/* Update Button */}
+        
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Update Profile</Text>
         </TouchableOpacity>
