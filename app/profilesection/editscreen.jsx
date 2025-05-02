@@ -84,7 +84,7 @@ import {
           </Picker>
         </View>
   
-        {/* Birthday Input */}
+      
         <TextInput
           placeholder="Birthday (DD/MM/YY)"
           style={styles.input}
