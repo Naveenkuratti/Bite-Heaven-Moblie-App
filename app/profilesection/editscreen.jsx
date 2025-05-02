@@ -92,7 +92,6 @@ import {
           onChangeText={setBirthday}
         />
   
-        {/* Anniversary Input */}
         <TextInput
           placeholder="Anniversary (DD/MM/YY)"
           style={styles.input}
@@ -100,7 +99,6 @@ import {
           onChangeText={setAnniversary}
         />
   
-        {/* Invoice Section Title */}
         <Text style={styles.sectionTitle}>Invoice Details</Text>
   
         {/* State Picker */}
