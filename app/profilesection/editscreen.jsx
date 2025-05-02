@@ -49,7 +49,7 @@ import {
           </TouchableOpacity>
         </View>
   
-        {/* Name Input */}
+        
         <TextInput
           placeholder="Enter your name"
           style={styles.input}
@@ -57,7 +57,7 @@ import {
           onChangeText={setName}
         />
   
-        {/* Mobile Number (Disabled) */}
+        
         <TextInput
           value="9620395087"
           style={[styles.input, styles.disabledInput]}
@@ -72,7 +72,7 @@ import {
           onChangeText={setEmail}
         />
   
-        {/* Gender Picker */}
+        
         <View style={styles.pickerContainer}>
           <Picker
             selectedValue={gender}
