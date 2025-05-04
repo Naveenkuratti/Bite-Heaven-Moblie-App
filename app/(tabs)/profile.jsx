@@ -4,12 +4,19 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
+import faq from './../profilesection/faq';
 
 export default function Profile() {
   const router = useRouter(); 
 
   const handleNext = () => {
     router.push('/profilesection/editscreen'); 
+  };
+  const handlePress = (item) => {
+    if (item === 'Frequently asked questions') {
+      router.push('/profilesection/faq');
+    }
+    // You can add other navigation cases here for 'Chat with us' etc.
   };
 
   return (
@@ -59,9 +66,13 @@ export default function Profile() {
         </TouchableOpacity>
       ))}
 
-      <Text style={styles.sectionTitle}>Support</Text>
+<Text style={styles.sectionTitle}>Support</Text>
       {['Frequently asked questions', 'Chat with us', 'Share feedback'].map((item, idx) => (
-        <TouchableOpacity style={styles.listItem} key={idx}>
+        <TouchableOpacity
+          style={styles.listItem}
+          key={idx}
+          onPress={() => handlePress(item)}
+        >
           <Text>{item}</Text>
           <Icon name="chevron-forward" size={18} />
         </TouchableOpacity>
