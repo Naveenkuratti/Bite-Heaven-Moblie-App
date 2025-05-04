@@ -1,41 +1,69 @@
-
-
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
-import faq from './../profilesection/faq';
 
 export default function Profile() {
-  const router = useRouter(); 
+  const router = useRouter();
+  const scrollViewRef = useRef(null);
+
+  useEffect(() => {
+
+    scrollViewRef.current?.scrollTo({ y: 9999, animated: true }); 
+  }, []);
 
   const handleNext = () => {
-    router.push('/profilesection/editscreen'); 
+    router.push('/profilesection/editscreen');
   };
+
   const handlePress = (item) => {
-    if (item === 'Frequently asked questions') {
-      router.push('/profilesection/faq');
+    const supportRoutes = {
+      'Frequently asked questions': '/profilesection/faq',
+      'Chat with us': '/profilesection/chatwithus',
+      'Share feedback': '/profilesection/sharefeedback',
+    };
+
+    const manageRoutes = {
+      'Your reviews': '/profilesection/reviews',
+      'Movie reminders': '/profilesection/reminders',
+      'Payment settings': '/profilesection/paymentsettings',
+    };
+
+    const moreRoutes = {
+      'Notification settings': '/profilesection/notifications',
+      'Account settings': '/profilesection/accountsettings',
+      'About us': '/profilesection/about',
+    };
+
+    const combinedRoutes = { ...supportRoutes, ...manageRoutes, ...moreRoutes };
+
+    const path = combinedRoutes[item];
+    if (path) {
+      router.push(path);
+    } else {
+      console.warn(`No route defined for "${item}"`);
     }
-    // You can add other navigation cases here for 'Chat with us' etc.
   };
 
   return (
-    <ScrollView style={styles.container}>
-     
+    <ScrollView
+      ref={scrollViewRef}
+      style={styles.container}
+      contentContainerStyle={styles.content}
+    >
+      {/* Profile Header */}
       <View style={styles.profileHeader}>
         <View style={styles.avatarPlaceholder} />
-        <View>
+        <View style={styles.userInfo}>
           <Text style={styles.name}>Update your name</Text>
           <Text style={styles.phone}>9620395087</Text>
         </View>
-        <Icon name="pencil" size={20} color="#000" style={styles.editIcon} />
-         <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
-         
-                <Text style={styles.nextButtonText}>Next</Text>
-              </TouchableOpacity>
+        <TouchableOpacity onPress={handleNext} style={styles.nextButton}>
+          <Text style={styles.nextButtonText}>Edit</Text>
+        </TouchableOpacity>
       </View>
 
-    
+      {/* Booking Section */}
       <Text style={styles.sectionTitle}>All bookings</Text>
       <View style={styles.row}>
         <TouchableOpacity style={styles.card}><Text>Table bookings</Text></TouchableOpacity>
@@ -43,30 +71,35 @@ export default function Profile() {
         <TouchableOpacity style={styles.card}><Text>Event tickets</Text></TouchableOpacity>
       </View>
 
-      
+      {/* Vouchers */}
       <Text style={styles.sectionTitle}>Vouchers</Text>
       <TouchableOpacity style={styles.listItem}>
         <Text>Collected vouchers</Text>
         <Icon name="chevron-forward" size={18} />
       </TouchableOpacity>
 
-      
+      {/* Payments */}
       <Text style={styles.sectionTitle}>Payments</Text>
       <TouchableOpacity style={styles.listItem}>
         <Text>Dining transactions</Text>
         <Icon name="chevron-forward" size={18} />
       </TouchableOpacity>
 
-     
+      {/* Manage */}
       <Text style={styles.sectionTitle}>Manage</Text>
       {['Your reviews', 'Movie reminders', 'Payment settings'].map((item, idx) => (
-        <TouchableOpacity style={styles.listItem} key={idx}>
+        <TouchableOpacity
+          style={styles.listItem}
+          key={idx}
+          onPress={() => handlePress(item)}
+        >
           <Text>{item}</Text>
           <Icon name="chevron-forward" size={18} />
         </TouchableOpacity>
       ))}
 
-<Text style={styles.sectionTitle}>Support</Text>
+      {/* Support */}
+      <Text style={styles.sectionTitle}>Support</Text>
       {['Frequently asked questions', 'Chat with us', 'Share feedback'].map((item, idx) => (
         <TouchableOpacity
           style={styles.listItem}
@@ -78,20 +111,26 @@ export default function Profile() {
         </TouchableOpacity>
       ))}
 
+      {/* More */}
       <Text style={styles.sectionTitle}>More</Text>
       {['Notification settings', 'Account settings', 'About us'].map((item, idx) => (
-        <TouchableOpacity style={styles.listItem} key={idx}>
+        <TouchableOpacity
+          style={styles.listItem}
+          key={idx}
+          onPress={() => handlePress(item)}
+        >
           <Text>{item}</Text>
           <Icon name="chevron-forward" size={18} />
         </TouchableOpacity>
       ))}
 
-     
+      {/* Logout */}
       <TouchableOpacity style={styles.logout}>
-        <Text style={{ color: 'red' }}>Logout</Text>
+        <Text style={{ color: 'red', fontWeight: 'bold' }}>Logout</Text>
       </TouchableOpacity>
 
-      <Text style={styles.footerText}>distrct v2.0.0</Text>
+      {/* App Version */}
+      <Text style={styles.footerText}>Bite Haven v1.0.0</Text> {/* Updated app name */}
     </ScrollView>
   );
 }
@@ -99,7 +138,10 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
+  },
+  content: {
     padding: 16,
+    paddingBottom: 60, // Increased bottom padding to make space for the footer
   },
   profileHeader: {
     flexDirection: 'row',
@@ -113,6 +155,9 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginRight: 12,
   },
+  userInfo: {
+    flex: 1,
+  },
   name: {
     fontWeight: 'bold',
     fontSize: 16,
@@ -120,14 +165,22 @@ const styles = StyleSheet.create({
   phone: {
     color: '#666',
   },
-  editIcon: {
-    marginLeft: 'auto',
+  nextButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 6,
+  },
+  nextButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   sectionTitle: {
     fontWeight: 'bold',
-    marginTop: 16,
+    marginTop: 20,
     marginBottom: 8,
     fontSize: 16,
+    color: '#333',
   },
   row: {
     flexDirection: 'row',
@@ -151,7 +204,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logout: {
-    marginTop: 16,
+    marginTop: 24,
     padding: 16,
     backgroundColor: '#fceaea',
     borderRadius: 8,
@@ -160,6 +213,8 @@ const styles = StyleSheet.create({
   footerText: {
     textAlign: 'center',
     color: '#888',
+    fontSize: 12,
     marginTop: 20,
+    marginBottom: 20,
   },
 });
