@@ -71,21 +71,21 @@ export default function Profile() {
         <TouchableOpacity style={styles.card}><Text>Event tickets</Text></TouchableOpacity>
       </View>
 
-      {/* Vouchers */}
+      
       <Text style={styles.sectionTitle}>Vouchers</Text>
       <TouchableOpacity style={styles.listItem}>
         <Text>Collected vouchers</Text>
         <Icon name="chevron-forward" size={18} />
       </TouchableOpacity>
 
-      {/* Payments */}
+    
       <Text style={styles.sectionTitle}>Payments</Text>
       <TouchableOpacity style={styles.listItem}>
         <Text>Dining transactions</Text>
         <Icon name="chevron-forward" size={18} />
       </TouchableOpacity>
 
-      {/* Manage */}
+     
       <Text style={styles.sectionTitle}>Manage</Text>
       {['Your reviews', 'Movie reminders', 'Payment settings'].map((item, idx) => (
         <TouchableOpacity
