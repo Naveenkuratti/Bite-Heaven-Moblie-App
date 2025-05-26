@@ -1,4 +1,4 @@
-Bite-Heaven-Mobile-App 🍽️📱
+Bite-Heaven-Mobile-App 🍽️📱   
 A comprehensive hotel and restaurant management mobile application built with Expo.                                          
                                                                                                     
 Overview                                                                                                    
