@@ -8,7 +8,7 @@ Features
 ✅ User Authentication (Login, Signup, Forgot Password)                                        
 ✅ Table & Room Reservations (Real-time availability updates)          
 ✅ Menu Management (Dishes, categories, pricing updates)        
-✅ Order Management (Takeaway, dine-in, delivery tracking)                                                  
+✅ Order Management (Takeaway, dine-in, delivery tracking)                                                                            
 ✅ Payment Integration (Stripe, Razorpay, etc.)
 ✅ Staff Management (Roles, permissions, schedules)           
 ✅ Customer Feedback & Ratings
