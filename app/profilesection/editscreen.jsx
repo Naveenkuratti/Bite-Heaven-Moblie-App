@@ -35,7 +35,7 @@ import {
           <Text style={styles.backText}>Back</Text>
         </TouchableOpacity>
   
-        {/* Title */}
+        
         <Text style={styles.title}>Edit Profile</Text>
   
         {/* Profile Image */}
