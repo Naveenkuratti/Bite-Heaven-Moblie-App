@@ -60,7 +60,7 @@ export default function Notifications() {
       </View>
 
       <ScrollView contentContainerStyle={styles.content}>
-        {/* Enable All */}
+       
         <View style={styles.section}>
           <Text style={styles.label}>Enable all</Text>
           <Text style={styles.subtext}>Activate all notifications</Text>
