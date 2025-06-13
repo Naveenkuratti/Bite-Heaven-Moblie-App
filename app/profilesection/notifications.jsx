@@ -72,7 +72,7 @@ export default function Notifications() {
           />
         </View>
 
-        {/* Orders and purchases */}
+        
         <Text style={styles.category}>Orders and purchases</Text>
         <Text style={styles.description}>
           Receive updates related to your bookings, reminders, payments and more
