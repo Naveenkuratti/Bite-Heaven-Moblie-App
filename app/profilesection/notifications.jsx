@@ -51,7 +51,7 @@ export default function Notifications() {
 
   return (
     <View style={styles.container}>
-      {/* Header with back button */}
+     
       <View style={styles.header}>
         <TouchableOpacity onPress={handleBack} style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color="#007AFF" />
