@@ -24,12 +24,12 @@ import {
     const [anniversary, setAnniversary] = useState('');
   
     const handleNext = () => {
-      router.push('/profile'); // Ensure '/profile' route exists in your app
+      router.push('/profile'); 
     };
   
     return (
       <ScrollView style={styles.container}>
-        {/* Back Button */}
+     
         <TouchableOpacity onPress={handleNext} style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#007AFF" />
           <Text style={styles.backText}>Back</Text>
