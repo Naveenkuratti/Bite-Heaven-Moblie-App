@@ -64,7 +64,7 @@ import {
           editable={false}
         />
   
-        {/* Email Input */}
+       
         <TextInput
           placeholder="Enter your email"
           style={styles.input}
