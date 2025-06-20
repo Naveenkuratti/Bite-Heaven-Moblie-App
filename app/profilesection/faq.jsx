@@ -55,7 +55,7 @@ const HelpScreen = () => {
   );
 
   const handleBack = () => {
-    router.back(''); // Change this to router.push('/profile') if needed
+    router.back(''); 
   };
   const go=()=>{
     router.push('/profilesection/chatwithus')
