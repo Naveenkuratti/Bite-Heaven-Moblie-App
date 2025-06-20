@@ -38,7 +38,7 @@ import {
         
         <Text style={styles.title}>Edit Profile</Text>
   
-        {/* Profile Image */}
+      
         <View style={styles.profilePicContainer}>
           <Image
             source={{ uri: 'https://www.w3schools.com/howto/img_avatar.png' }}
