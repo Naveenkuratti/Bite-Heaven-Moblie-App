@@ -96,7 +96,6 @@ const HelpScreen = () => {
         )}
       </ScrollView>
 
-      {/* Chat with us Button */}
       <TouchableOpacity style={styles.chatButton}>
         <Icon name="chatbubbles-outline" size={20} color="#fff" style={{ marginRight: 8 }} />
         <Text style={styles.chatText} onPress={go}>Chat with us</Text>
