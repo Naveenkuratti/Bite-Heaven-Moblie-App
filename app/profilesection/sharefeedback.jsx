@@ -44,7 +44,7 @@ export default function ShareFeedback({ navigation }) {
   const handleSubmit = () => {
     console.log('Submitted Rating:', rating);
     console.log('Submitted Feedback:', feedback);
-    // Add submission logic (API call or storage) here
+   
   };
 
   return (
