@@ -81,7 +81,7 @@ export default function Home() {
           </View>
         </View>
 
-        {/* Exclusive Offerings */}
+    
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
           <Text style={styles.dividerText}>EXCLUSIVE OFFERINGS</Text>
@@ -101,7 +101,7 @@ export default function Home() {
           ))}
         </View>
 
-        {/* Promotion Banner */}
+       
         <View style={styles.promotionContainer}>
           <Image
             source={require('../../assets/images/User2.png')}
