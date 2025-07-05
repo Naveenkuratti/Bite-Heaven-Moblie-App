@@ -110,7 +110,7 @@ export default function Home() {
           />
         </View>
 
-        {/* Restaurant List */}
+      
         <View style={styles.allRestaurantsContainer}>
           <Text style={styles.sectionTitle}>ALL RESTAURANTS</Text>
 
