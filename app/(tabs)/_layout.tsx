@@ -10,7 +10,7 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          height: 60, // Adjust tab bar height
+          height: 60, 
           position: 'absolute',
         },
       }}
@@ -37,7 +37,7 @@ export default function TabLayout() {
                 shadowOpacity: 0.2,
                 shadowRadius: 4,
                 shadowOffset: { width: 0, height: 2 },
-                elevation: 5, // For Android shadow effect
+                elevation: 5, 
               }}
             >
               <MaterialIcons name="qr-code-scanner" size={32} color="black" />
