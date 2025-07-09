@@ -30,7 +30,7 @@ export default function TabLayout() {
             <View
               style={{
                 
-                bottom: 15, // Moves the icon up
+                bottom: 15, 
                 position: 'absolute',
                 borderRadius: 50,
                 shadowColor: '#000',
