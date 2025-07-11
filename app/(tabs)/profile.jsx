@@ -59,7 +59,7 @@ export default function Profile() {
         style={styles.container}
         contentContainerStyle={styles.content}
       >
-        {/* Profile Header */}
+       
         <View style={styles.profileHeader}>
           <View style={styles.avatarPlaceholder} />
           <View style={styles.userInfo}>
