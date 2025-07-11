@@ -71,7 +71,7 @@ export default function Profile() {
           </TouchableOpacity>
         </View>
 
-        {/* Booking Section */}
+       
         <Text style={styles.sectionTitle}>All bookings</Text>
         <View style={styles.row}>
           <TouchableOpacity style={styles.card}>
