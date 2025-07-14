@@ -112,7 +112,7 @@ export default function Profile() {
           </TouchableOpacity>
         ))}
 
-        {/* Support */}
+      
         <Text style={styles.sectionTitle}>Support</Text>
         {['Frequently asked questions', 'Chat with us', 'Share feedback'].map((item, idx) => (
           <TouchableOpacity
