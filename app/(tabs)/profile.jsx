@@ -125,7 +125,7 @@ export default function Profile() {
           </TouchableOpacity>
         ))}
 
-        {/* More */}
+        
         <Text style={styles.sectionTitle}>More</Text>
         {['Notification settings', 'Account settings', 'About us'].map((item, idx) => (
           <TouchableOpacity
