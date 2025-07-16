@@ -138,7 +138,7 @@ export default function Profile() {
           </TouchableOpacity>
         ))}
 
-        {/* Logout */}
+        
         <TouchableOpacity style={styles.logout} onPress={() => setLogoutModalVisible(true)}>
           <Text style={{ color: 'red', fontWeight: 'bold' }}>Logout</Text>
         </TouchableOpacity>
