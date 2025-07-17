@@ -143,7 +143,7 @@ export default function Profile() {
           <Text style={{ color: 'red', fontWeight: 'bold' }}>Logout</Text>
         </TouchableOpacity>
 
-        {/* App Version */}
+        
         <Text style={styles.footerText}>Bite Heaven v.1.0</Text>
       </ScrollView>
 
