@@ -99,7 +99,6 @@ export default function Profile() {
           <Icon name="chevron-forward" size={18} />
         </TouchableOpacity>
 
-        {/* Manage */}
         <Text style={styles.sectionTitle}>Manage</Text>
         {['Your reviews', 'Movie reminders', 'Payment settings'].map((item, idx) => (
           <TouchableOpacity
