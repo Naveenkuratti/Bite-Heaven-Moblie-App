@@ -92,7 +92,6 @@ export default function Profile() {
           <Icon name="chevron-forward" size={18} />
         </TouchableOpacity>
 
-        {/* Payments */}
         <Text style={styles.sectionTitle}>Payments</Text>
         <TouchableOpacity style={styles.listItem}>
           <Text>Dining transactions</Text>
