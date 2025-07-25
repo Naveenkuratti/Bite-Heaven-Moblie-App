@@ -4,7 +4,7 @@ import React from 'react'
 export default function scanner() {
   return (
     <View>
-      <Text>scanner</Text>
+      <Text></Text>
     </View>
   )
 }
