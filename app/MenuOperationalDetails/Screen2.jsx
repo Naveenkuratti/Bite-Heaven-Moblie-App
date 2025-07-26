@@ -13,7 +13,7 @@ const AddFoodImagesScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+     
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <ArrowLeft color="black" size={24} />
