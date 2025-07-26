@@ -8,7 +8,7 @@ const AddFoodImagesScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleNext = () => {
-    router.push('/MenuOperationalDetails/Screen3'); // Update the path accordingly
+    router.push('/MenuOperationalDetails/Screen3'); 
   };
 
   return (
