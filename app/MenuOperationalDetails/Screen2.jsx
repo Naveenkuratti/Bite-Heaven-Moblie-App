@@ -32,7 +32,6 @@ const AddFoodImagesScreen = () => {
           These images will be shown on your restaurant’s Bite Heaven dining page.
         </Text>
 
-        {/* Upload Section */}
         <TouchableOpacity style={styles.uploadBox}>
           <Image source={require('../../assets/images/iconimage.jpg')} style={styles.uploadIcon} />
           <Text style={styles.uploadText}>Add food images</Text>
