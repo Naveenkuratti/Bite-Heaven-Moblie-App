@@ -25,7 +25,7 @@ const AddFoodImagesScreen = () => {
         </View>
       </View>
 
-      {/* Content Section */}
+      
       <View style={styles.content}>
         <Text style={styles.title}>Add food images (optional)</Text>
         <Text style={styles.subtitle}>
