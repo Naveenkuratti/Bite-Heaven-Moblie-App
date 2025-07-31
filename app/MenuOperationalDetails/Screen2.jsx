@@ -44,7 +44,7 @@ const AddFoodImagesScreen = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Next Button */}
+    
       <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
