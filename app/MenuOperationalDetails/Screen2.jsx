@@ -52,7 +52,7 @@ const AddFoodImagesScreen = () => {
       <Modal visible={modalVisible} transparent animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            {/* Close Button */}
+         
             <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
               <X color="black" size={24} />
             </TouchableOpacity>
