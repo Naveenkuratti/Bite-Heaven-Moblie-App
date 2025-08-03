@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     padding: 15,
     borderRadius: 10,
-    marginBottom: 15, // Adjusted margin to keep spacing uniform
+    marginBottom: 15, 
   },
   selectedOption: {
     borderWidth: 2,
