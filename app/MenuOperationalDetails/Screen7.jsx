@@ -13,7 +13,7 @@ const DeviceSelectionScreen = () => {
 
   const handleNext = () => {
     if (selectedDevice) {
-      router.push("/MenuOperationalDetails/Screen8"); // Update with the correct navigation route
+      router.push("/MenuOperationalDetails/Screen8"); 
     }
   };
 
