@@ -16,7 +16,7 @@ const ServiceSelectionScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Back Button */}
+     
       <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
         <Icon name="chevron-left" size={22} color="black" />
       </TouchableOpacity>
