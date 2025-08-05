@@ -21,7 +21,7 @@ const ServiceSelectionScreen = () => {
         <Icon name="chevron-left" size={22} color="black" />
       </TouchableOpacity>
 
-      {/* Header */}
+      
       <Text style={styles.header}>Select the service you want to register for</Text>
 
       {/* Both Food & Rooms Option */}
