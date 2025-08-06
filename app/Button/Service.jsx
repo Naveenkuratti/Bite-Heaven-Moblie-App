@@ -24,7 +24,7 @@ const ServiceSelectionScreen = () => {
       
       <Text style={styles.header}>Select the service you want to register for</Text>
 
-      {/* Both Food & Rooms Option */}
+ 
       <TouchableOpacity style={styles.card} >
         <View style={styles.cardContent}>
           <View style={styles.textContainer}>
