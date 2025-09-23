@@ -40,7 +40,7 @@ export default function RestaurantDetails() {
         </TouchableOpacity>
       </View>
 
-      {/* Scrollable Details */}
+
       <ScrollView
         contentContainerStyle={{ paddingBottom: 120 }}
         showsVerticalScrollIndicator={false}
