@@ -15,7 +15,6 @@ import Icon from "react-native-vector-icons/Feather";
 export default function RestaurantDetails() {
   const { name, description, discount, imageKey } = useLocalSearchParams();
 
-  // Map imageKey to actual images
   const imageMap = {
     rest: require("../../assets/images/rest.png"),
     rest1: require("../../assets/images/rest1.png"),
@@ -29,7 +28,7 @@ export default function RestaurantDetails() {
         backgroundColor="transparent"
       />
 
-      {/* Banner */}
+    
       <View>
         <Image source={imageMap[imageKey]} style={styles.bannerImage} />
         <TouchableOpacity
