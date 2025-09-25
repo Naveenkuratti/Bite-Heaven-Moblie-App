@@ -44,7 +44,7 @@ export default function RestaurantDetails() {
         contentContainerStyle={{ paddingBottom: 120 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* Restaurant Info */}
+   
         <View style={styles.section}>
           <Text style={styles.restaurantName}>{name}</Text>
           <Text style={styles.subInfo}>₹500 for two • ⭐ 4.5</Text>
@@ -52,7 +52,7 @@ export default function RestaurantDetails() {
           <Text style={styles.discount}>{discount}</Text>
         </View>
 
-        {/* Gallery */}
+        
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Gallery</Text>
           <View style={styles.galleryRow}>
