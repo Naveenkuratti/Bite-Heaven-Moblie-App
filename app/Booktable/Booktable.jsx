@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -12,30 +12,59 @@ import { router } from "expo-router";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function Booktable() {
-  const [guests, setGuests] = useState(1);
-  const [selectedDate, setSelectedDate] = useState("23");
+  const [guests, setGuests] = useState(2);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedMeal, setSelectedMeal] = useState("Lunch");
   const [selectedTime, setSelectedTime] = useState(null);
-
-  const dates = [
-    { day: "23", label: "Tue" },
-    { day: "24", label: "Wed" },
-    { day: "25", label: "Thu" },
-    { day: "26", label: "Fri" },
-    { day: "27", label: "Sat" },
-    { day: "28", label: "Sun" },
-  ];
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [dates, setDates] = useState([]);
 
   const times = [
-    "8:45 PM",
-    "9:00 PM",
-    "9:15 PM",
-    "9:30 PM",
-    "9:45 PM",
-    "10:00 PM",
-    "10:15 PM",
-    "10:30 PM",
-    "10:45 PM",
+    "12:00 PM",
+    "12:30 PM",
+    "2:00 PM",
+    "2:30 PM",
+    "3:00 PM",
+    "3:30 PM",
   ];
+  const options = [
+    {
+      id: 1,
+      title: "Regular table reservation",
+      subtitle: "No cover charge required",
+    },
+  ];
+
+  // Generate all dates in 2025
+  useEffect(() => {
+    const generateDates2025 = () => {
+      const start = new Date("2025-01-01");
+      const end = new Date("2025-12-31");
+      const datesArray = [];
+      const options = { weekday: "short" }; // e.g., "Thu"
+
+      let current = start;
+      while (current <= end) {
+        const dayOfWeek = current.toLocaleDateString("en-US", options);
+        const formatted = `${current.getDate()} ${dayOfWeek}`; // e.g., "25 Thu"
+        datesArray.push(formatted);
+        current.setDate(current.getDate() + 1);
+      }
+      return datesArray;
+    };
+
+    const allDates = generateDates2025();
+    setDates(allDates);
+
+    // Set default selected date to today if in 2025
+    const today = new Date();
+    if (today.getFullYear() === 2025) {
+      const todayStr = `${today.getDate()} ${today.toLocaleDateString("en-US", { weekday: "short" })}`;
+      setSelectedDate(todayStr);
+    } else {
+      setSelectedDate(allDates[0]);
+    }
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,7 +75,7 @@ export default function Booktable() {
         </TouchableOpacity>
         <View>
           <Text style={styles.headerTitle}>Book a table</Text>
-          <Text style={styles.subTitle}>Tiger Trail - Royal Orchid Hotel</Text>
+          <Text style={styles.subTitle}>Phurr</Text>
         </View>
       </View>
 
@@ -54,17 +83,19 @@ export default function Booktable() {
         {/* Guests */}
         <View style={styles.section}>
           <Text style={styles.label}>Select number of guests</Text>
-          <View style={styles.guestSelector}>
-            <TouchableOpacity
-              disabled={guests <= 1}
-              onPress={() => setGuests(guests - 1)}
-            >
-              <Text style={styles.guestBtn}>-</Text>
-            </TouchableOpacity>
+          <View style={styles.guestBox}>
             <Text style={styles.guestText}>{guests}</Text>
-            <TouchableOpacity onPress={() => setGuests(guests + 1)}>
-              <Text style={styles.guestBtn}>+</Text>
-            </TouchableOpacity>
+            <View style={styles.guestActions}>
+              <TouchableOpacity
+                disabled={guests <= 1}
+                onPress={() => setGuests(guests - 1)}
+              >
+                <Text style={styles.guestBtn}>-</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setGuests(guests + 1)}>
+                <Text style={styles.guestBtn}>+</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
 
@@ -74,38 +105,30 @@ export default function Booktable() {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {dates.map((d) => (
               <TouchableOpacity
-                key={d.day}
+                key={d}
                 style={[
                   styles.dateBox,
-                  selectedDate === d.day && styles.dateBoxActive,
+                  selectedDate === d && styles.dateBoxActive,
                 ]}
-                onPress={() => setSelectedDate(d.day)}
+                onPress={() => setSelectedDate(d)}
               >
                 <Text
                   style={[
                     styles.dateText,
-                    selectedDate === d.day && styles.dateTextActive,
+                    selectedDate === d && styles.dateTextActive,
                   ]}
                 >
-                  {d.day}
-                </Text>
-                <Text
-                  style={[
-                    styles.dayText,
-                    selectedDate === d.day && styles.dateTextActive,
-                  ]}
-                >
-                  {d.label}
+                  {d}
                 </Text>
               </TouchableOpacity>
             ))}
           </ScrollView>
         </View>
 
-        {/* Meal Type */}
+        {/* Meal */}
         <View style={styles.section}>
           <TouchableOpacity style={styles.mealButton}>
-            <Text style={styles.mealText}>Dinner</Text>
+            <Text style={styles.mealText}>{selectedMeal}</Text>
           </TouchableOpacity>
         </View>
 
@@ -132,25 +155,46 @@ export default function Booktable() {
                 >
                   {item}
                 </Text>
-                <Text style={styles.discountText}>30% OFF</Text>
               </TouchableOpacity>
             )}
           />
         </View>
 
-        {/* Info */}
-        <Text style={styles.infoText}>
-          Any cover charge paid will be adjusted in the final bill
-        </Text>
+        {/* Options */}
+        <View style={styles.section}>
+          <Text style={styles.label}>1 option available</Text>
+          {options.map((opt) => (
+            <TouchableOpacity
+              key={opt.id}
+              style={[
+                styles.optionCard,
+                selectedOption === opt.id && styles.optionCardActive,
+              ]}
+              onPress={() => setSelectedOption(opt.id)}
+            >
+              <Icon name="bell" size={20} color="#000" />
+              <View style={{ flex: 1, marginLeft: 10 }}>
+                <Text style={styles.optionTitle}>{opt.title}</Text>
+                <Text style={styles.optionSubtitle}>{opt.subtitle}</Text>
+              </View>
+              <View
+                style={[
+                  styles.radio,
+                  selectedOption === opt.id && styles.radioActive,
+                ]}
+              />
+            </TouchableOpacity>
+          ))}
+        </View>
       </ScrollView>
 
-      {/* Footer Button */}
+      {/* Footer */}
       <TouchableOpacity
         style={[
           styles.proceedBtn,
-          !selectedTime && { backgroundColor: "#ccc" },
+          (!selectedTime || !selectedOption) && { backgroundColor: "#ccc" },
         ]}
-        disabled={!selectedTime}
+        disabled={!selectedTime || !selectedOption}
         onPress={() =>
           alert(
             `Table booked for ${guests} guests on ${selectedDate} at ${selectedTime}`
@@ -182,37 +226,34 @@ const styles = StyleSheet.create({
   // Section
   section: { padding: 15 },
 
-  // Guests
-  label: { fontSize: 16, fontWeight: "600", marginBottom: 8, color: "#000" },
-  guestSelector: {
+  label: { fontSize: 16, fontWeight: "600", marginBottom: 10, color: "#000" },
+
+  // Guest
+  guestBox: {
     flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#ddd",
     borderRadius: 8,
-    paddingHorizontal: 10,
-    width: 120,
-    justifyContent: "space-between",
+    padding: 12,
   },
-  guestBtn: { fontSize: 22, fontWeight: "bold", color: "#000" },
   guestText: { fontSize: 16, fontWeight: "600", color: "#000" },
+  guestActions: { flexDirection: "row" },
+  guestBtn: { fontSize: 20, marginHorizontal: 10, color: "#000" },
 
   // Dates
   dateBox: {
-    width: 60,
-    height: 70,
     borderWidth: 1,
     borderColor: "#ddd",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     marginRight: 10,
-    backgroundColor: "#fff",
   },
   dateBoxActive: { backgroundColor: "#000", borderColor: "#000" },
-  dateText: { fontSize: 18, fontWeight: "bold", color: "#000" },
-  dayText: { fontSize: 14, color: "#555" },
-  dateTextActive: { color: "#fff" },
+  dateText: { fontSize: 14, color: "#000" },
+  dateTextActive: { color: "#fff", fontWeight: "bold" },
 
   // Meal
   mealButton: {
@@ -233,23 +274,35 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 12,
     alignItems: "center",
-    backgroundColor: "#fff",
   },
   timeBoxActive: { backgroundColor: "#000", borderColor: "#000" },
   timeText: { fontSize: 14, fontWeight: "600", color: "#000" },
   timeTextActive: { color: "#fff" },
-  discountText: { fontSize: 12, color: "#6c63ff", marginTop: 4 },
 
-  // Info
-  infoText: {
-    fontSize: 13,
-    color: "#777",
-    textAlign: "center",
-    marginVertical: 10,
-    paddingHorizontal: 20,
+  // Options
+  optionCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 12,
+    backgroundColor: "#fff",
   },
+  optionCardActive: { borderColor: "#000" },
+  optionTitle: { fontSize: 15, fontWeight: "600", color: "#000" },
+  optionSubtitle: { fontSize: 13, color: "#777" },
+  radio: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    borderWidth: 2,
+    borderColor: "#000",
+  },
+  radioActive: { backgroundColor: "#000" },
 
-  // Footer
+  
   proceedBtn: {
     backgroundColor: "#000",
     paddingVertical: 16,

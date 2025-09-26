@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,16 +8,28 @@ import {
   StyleSheet,
   SafeAreaView,
   StatusBar,
+  Modal,
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function RestaurantDetails() {
   const { name, description, discount, imageKey } = useLocalSearchParams();
+  const [modalVisible, setModalVisible] = useState(false);
+  const [guests, setGuests] = useState(1);
 
   const imageMap = {
     rest: require("../../assets/images/rest.png"),
     rest1: require("../../assets/images/rest1.png"),
+  };
+
+  const handleContinue = () => {
+    setModalVisible(false);
+    // Go to next step (e.g. date selection screen)
+    router.push({
+      pathname: "/Booktable/Booktable",
+      params: { guests },
+    });
   };
 
   return (
@@ -28,7 +40,7 @@ export default function RestaurantDetails() {
         backgroundColor="transparent"
       />
 
-    
+      {/* Banner */}
       <View>
         <Image source={imageMap[imageKey]} style={styles.bannerImage} />
         <TouchableOpacity
@@ -39,12 +51,11 @@ export default function RestaurantDetails() {
         </TouchableOpacity>
       </View>
 
-
+      {/* Content */}
       <ScrollView
         contentContainerStyle={{ paddingBottom: 120 }}
         showsVerticalScrollIndicator={false}
       >
-   
         <View style={styles.section}>
           <Text style={styles.restaurantName}>{name}</Text>
           <Text style={styles.subInfo}>₹500 for two • ⭐ 4.5</Text>
@@ -52,7 +63,6 @@ export default function RestaurantDetails() {
           <Text style={styles.discount}>{discount}</Text>
         </View>
 
-        
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Gallery</Text>
           <View style={styles.galleryRow}>
@@ -85,7 +95,7 @@ export default function RestaurantDetails() {
       <View style={styles.bottomButtons}>
         <TouchableOpacity
           style={styles.bookButton}
-          onPress={() => router.push("/Booktable/Booktable")}
+          onPress={() => setModalVisible(true)}
         >
           <Text style={styles.bookText}>Book a Table</Text>
         </TouchableOpacity>
@@ -97,6 +107,56 @@ export default function RestaurantDetails() {
           <Text style={styles.bookText}>Pay Bill</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Modal for selecting guests */}
+      <Modal
+        visible={modalVisible}
+        transparent
+        animationType="slide"
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalBox}>
+            <TouchableOpacity
+              style={styles.closeBtn}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={{ fontSize: 18, color: "#fff" }}>✕</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.modalTitle}>Select number of guests</Text>
+
+            <View style={styles.guestRow}>
+              {[1, 2, 3, 4].map((num) => (
+                <TouchableOpacity
+                  key={num}
+                  style={[
+                    styles.guestButton,
+                    guests === num && styles.guestButtonSelected,
+                  ]}
+                  onPress={() => setGuests(num)}
+                >
+                  <Text
+                    style={[
+                      styles.guestText,
+                      guests === num && styles.guestTextSelected,
+                    ]}
+                  >
+                    {num}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={handleContinue}
+            >
+              <Text style={styles.continueText}>Continue</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -170,4 +230,53 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   bookText: { color: "#fff", fontWeight: "bold", fontSize: 15 },
+
+  // Modal styles
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.7)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalBox: {
+    backgroundColor: "#222",
+    borderRadius: 12,
+    padding: 20,
+    width: "85%",
+  },
+  closeBtn: { position: "absolute", top: 10, right: 10 },
+  modalTitle: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  guestRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+  guestButton: {
+    width: 60,
+    height: 50,
+    borderRadius: 10,
+    backgroundColor: "#111",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  guestButtonSelected: {
+    borderWidth: 2,
+    borderColor: "#fff",
+    backgroundColor: "#333",
+  },
+  guestText: { color: "#ccc", fontSize: 16, fontWeight: "bold" },
+  guestTextSelected: { color: "#fff" },
+  continueButton: {
+    backgroundColor: "#fff",
+    paddingVertical: 14,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  continueText: { color: "#000", fontSize: 16, fontWeight: "bold" },
 });
