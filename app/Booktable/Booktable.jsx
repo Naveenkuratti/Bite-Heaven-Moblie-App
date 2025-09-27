@@ -265,7 +265,6 @@ const styles = StyleSheet.create({
   },
   mealText: { fontSize: 15, fontWeight: "600", color: "#000" },
 
-  // Times
   timeBox: {
     width: "30%",
     paddingVertical: 14,
@@ -279,7 +278,7 @@ const styles = StyleSheet.create({
   timeText: { fontSize: 14, fontWeight: "600", color: "#000" },
   timeTextActive: { color: "#fff" },
 
-  // Options
+
   optionCard: {
     flexDirection: "row",
     alignItems: "center",
