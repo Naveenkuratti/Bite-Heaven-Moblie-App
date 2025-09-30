@@ -68,7 +68,7 @@ export default function Booktable() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Icon name="chevron-left" size={24} color="#000" />
@@ -99,7 +99,7 @@ export default function Booktable() {
           </View>
         </View>
 
-        {/* Dates */}
+        
         <View style={styles.section}>
           <Text style={styles.label}>Select day and time</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -125,7 +125,6 @@ export default function Booktable() {
           </ScrollView>
         </View>
 
-        {/* Meal */}
         <View style={styles.section}>
           <TouchableOpacity style={styles.mealButton}>
             <Text style={styles.mealText}>{selectedMeal}</Text>
