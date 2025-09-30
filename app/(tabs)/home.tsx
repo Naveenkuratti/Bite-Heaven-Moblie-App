@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
-  View, Text, TextInput, Image, ScrollView, TouchableOpacity,
-  StyleSheet, SafeAreaView, StatusBar
+  View,
+  Text,
+  TextInput,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  Dimensions,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
-export default function Home() {
+const { width } = Dimensions.get('window');
+const ITEM_WIDTH = width * 0.8; // width of one carousel item
 
-  const handleNext = (item: { name: any; description: any; discount: any; image?: any; imageKey: any; }) => {
-    router.push({
-      pathname: '/RestaurantDetails/RestaurantDetails',
-      params: {
-        name: item.name,
-        description: item.description,
-        discount: item.discount,
-        imageKey: item.imageKey,
-      },
-    });
-  };
+export default function Home() {
+  const [activeFilter, setActiveFilter] = useState("Restaurant");
+  const scrollRef = useRef<ScrollView>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const restaurants = [
     {
@@ -44,11 +46,44 @@ export default function Home() {
     },
   ];
 
+  const promotions = [
+    { image: require('../../assets/images/User2.png'), title: "Special Deals" },
+    { image: require('../../assets/images/user8.png'), title: "Walk-In Offers" },
+    { image: require('../../assets/images/User9.png'), title: "Group Bookings" },
+  ];
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let nextIndex = currentIndex + 1;
+      if (nextIndex >= promotions.length) nextIndex = 0;
+      setCurrentIndex(nextIndex);
+      scrollRef.current?.scrollTo({
+        x: nextIndex * ITEM_WIDTH,
+        animated: true,
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, promotions.length]);
+
+  const handleNext = (item: { name: any; description: any; discount: any; image?: any; imageKey: any; }) => {
+    router.push({
+      pathname: '/RestaurantDetails/RestaurantDetails',
+      params: {
+        name: item.name,
+        description: item.description,
+        discount: item.discount,
+        imageKey: item.imageKey,
+      },
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <ScrollView showsVerticalScrollIndicator={false}>
-       
+        {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerTop}>
             <View style={styles.locationContainer}>
@@ -59,6 +94,7 @@ export default function Home() {
 
           <Text style={styles.title}>Bite Heaven</Text>
 
+          {/* Search */}
           <View style={styles.searchContainer}>
             <TextInput
               style={styles.searchInput}
@@ -70,24 +106,36 @@ export default function Home() {
             </View>
           </View>
 
+          {/* Filter */}
           <Text style={styles.filterText}>Filter by Type</Text>
           <View style={styles.filterOptions}>
-            <TouchableOpacity style={[styles.filterOption, styles.activeFilter]}>
+            <TouchableOpacity
+              style={[styles.filterOption, activeFilter === "Restaurant" && styles.activeFilter]}
+              onPress={() => setActiveFilter("Restaurant")}
+            >
               <Text style={styles.filterOptionText}>Restaurant</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.filterOption}>
+
+            <TouchableOpacity
+              style={[styles.filterOption, activeFilter === "Room" && styles.activeFilter]}
+              onPress={() => {
+                setActiveFilter("Room");
+                router.push("/Rooms/Rooms");
+              }}
+            >
               <Text style={styles.filterOptionText}>Room</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-    
+        {/* Divider */}
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
           <Text style={styles.dividerText}>EXCLUSIVE OFFERINGS</Text>
           <View style={styles.divider} />
         </View>
 
+        {/* Offerings */}
         <View style={styles.offeringsContainer}>
           {[
             { label: "Special Deals", image: require('../../assets/images/User1.png') },
@@ -101,19 +149,42 @@ export default function Home() {
           ))}
         </View>
 
-       
+        {/* Promotion Carousel */}
         <View style={styles.promotionContainer}>
-          <Image
-            source={require('../../assets/images/User2.png')}
-            style={styles.promotionImage}
-            resizeMode="cover"
-          />
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
+            ref={scrollRef}
+            snapToAlignment="center"
+            decelerationRate="fast"
+            contentContainerStyle={{ paddingHorizontal: (width - ITEM_WIDTH) / 2 }}
+          >
+            {promotions.map((item, index) => (
+              <View key={index} style={{ width: ITEM_WIDTH, alignItems: 'center', marginRight: 10 }}>
+                <Image source={item.image} style={styles.promotionImage} resizeMode="cover" />
+                <Text style={styles.promotionTitle}>{item.title}</Text>
+              </View>
+            ))}
+          </ScrollView>
+
+          {/* Pagination Dots */}
+          <View style={styles.pagination}>
+            {promotions.map((_, index) => (
+              <View
+                key={index}
+                style={[
+                  styles.dot,
+                  currentIndex === index && styles.activeDot
+                ]}
+              />
+            ))}
+          </View>
         </View>
 
-      
+        {/* All Restaurants */}
         <View style={styles.allRestaurantsContainer}>
           <Text style={styles.sectionTitle}>ALL RESTAURANTS</Text>
-
           {restaurants.map((item, index) => (
             <TouchableOpacity key={index} style={styles.restaurantCard} onPress={() => handleNext(item)}>
               <Image source={item.image} style={styles.restaurantImage} resizeMode="cover" />
@@ -125,7 +196,6 @@ export default function Home() {
             </TouchableOpacity>
           ))}
         </View>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -138,14 +208,7 @@ const styles = StyleSheet.create({
   locationContainer: { flexDirection: 'row', alignItems: 'center' },
   locationText: { fontSize: 16, fontWeight: 'bold', marginRight: 5 },
   title: { fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginVertical: 10 },
-  searchContainer: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderRadius: 25,
-    alignItems: 'center',
-    paddingHorizontal: 15,
-    marginVertical: 10
-  },
+  searchContainer: { flexDirection: 'row', backgroundColor: 'white', borderRadius: 25, alignItems: 'center', paddingHorizontal: 15, marginVertical: 10 },
   searchInput: { flex: 1, height: 40 },
   searchIconsContainer: { flexDirection: 'row', alignItems: 'center' },
   searchIcon: { marginRight: 10 },
@@ -153,21 +216,22 @@ const styles = StyleSheet.create({
   filterOptions: { flexDirection: 'row', marginTop: 5 },
   filterOption: { paddingVertical: 10, paddingHorizontal: 15, marginRight: 20, borderRadius: 5 },
   activeFilter: { backgroundColor: 'rgba(0,0,0,0.1)' },
+  filterOptionText: { fontSize: 14, fontWeight: 'bold' },
   dividerContainer: { flexDirection: 'row', alignItems: 'center', marginVertical: 10 },
   divider: { flex: 1, height: 1, backgroundColor: '#ccc' },
   dividerText: { fontSize: 14, fontWeight: 'bold', marginHorizontal: 10 },
-  offeringsContainer: { flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10 },
+  offeringsContainer: { flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10, paddingHorizontal: 15 },
   offeringItem: { alignItems: 'center', flex: 1 },
-  offeringImage: { width: 100, height: 100, borderRadius: 10 },
-  offeringText: { marginTop: 5, fontSize: 12 },
-  promotionContainer: { alignItems: 'center', marginVertical: 20 },
-  promotionImage: { width: '100%', height: 210, borderRadius: 20 },
+  offeringImage: { width: 80, height: 80, borderRadius: 10 },
+  offeringText: { marginTop: 5, fontSize: 12, textAlign: 'center' },
+  promotionContainer: { marginVertical: 20 },
+  promotionImage: { width: ITEM_WIDTH, height: 220, borderRadius: 20 , left: 10},
+  promotionTitle: { marginTop: 5, fontSize: 14, fontWeight: 'bold', color: '#000' },
+  pagination: { flexDirection: 'row', justifyContent: 'center', marginTop: 10 },
+  dot: { width: 8, height: 8, borderRadius: 4, backgroundColor: '#ccc', marginHorizontal: 4 },
+  activeDot: { backgroundColor: '#FFCB05' },
   allRestaurantsContainer: { padding: 15 },
   restaurantCard: { borderRadius: 10, overflow: 'hidden', marginBottom: 15 },
   restaurantImage: { width: '100%', height: 150, borderRadius: 10 },
   sectionTitle: { fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
-  filterOptionText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
 });
