@@ -149,7 +149,7 @@ export default function Home() {
           ))}
         </View>
 
-        {/* Promotion Carousel */}
+       
         <View style={styles.promotionContainer}>
           <ScrollView
             horizontal
