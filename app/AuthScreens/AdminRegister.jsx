@@ -7,7 +7,7 @@ import { useRouter } from 'expo-router';
 import { registerAdmin } from "../api/adminregister"; 
 
 const AdminRegister = () => {
-  const router = useRouter();
+const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
