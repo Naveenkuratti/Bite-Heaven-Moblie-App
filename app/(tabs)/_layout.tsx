@@ -1,56 +1,62 @@
-import { Tabs } from 'expo-router';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { View } from 'react-native';
+import { Tabs } from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { View } from "react-native";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
         tabBarStyle: {
-          height: 60, 
-          position: 'absolute',
+          height: 60,
+          backgroundColor: "#fff",
+          borderTopWidth: 0.5,
+          borderColor: "#ddd",
+          elevation: 8,
+          position: "absolute",
         },
       }}
     >
+      {/* Home Tab */}
       <Tabs.Screen
         name="home"
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="home" size={24} color="black" />
-          ),
+          tabBarIcon: () => <FontAwesome name="home" size={24} color="black" />,
         }}
       />
+
+      {/* Scanner Tab (floating center icon) */}
       <Tabs.Screen
         name="scanner"
         options={{
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: () => (
             <View
               style={{
-                
-                bottom: 15, 
-                position: 'absolute',
-                borderRadius: 50,
-                shadowColor: '#000',
-                shadowOpacity: 0.2,
-                shadowRadius: 4,
-                shadowOffset: { width: 0, height: 2 },
-                elevation: 5, 
+                bottom: 15,
+                backgroundColor: "#FFD700",
+                borderRadius: 40,
+                padding: 10,
+                shadowColor: "#000",
+                shadowOpacity: 0.3,
+                shadowRadius: 5,
+                shadowOffset: { width: 0, height: 3 },
+                elevation: 6,
               }}
             >
-              <MaterialIcons name="qr-code-scanner" size={32} color="black" />
+              <MaterialIcons name="qr-code-scanner" size={30} color="black" />
             </View>
           ),
         }}
       />
+
+      {/* Profile Tab */}
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={24} color="black" />
-          ),
+          tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
         }}
       />
     </Tabs>
