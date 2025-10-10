@@ -35,7 +35,7 @@ export default function Booktable() {
     },
   ];
 
-  // Generate all dates in 2025
+  
   useEffect(() => {
     const generateDates2025 = () => {
       const start = new Date("2025-01-01");
