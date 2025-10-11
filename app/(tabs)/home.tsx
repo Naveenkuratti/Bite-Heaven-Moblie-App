@@ -46,7 +46,6 @@ export default function Home() {
     },
   ];
 
-  // Auto-scroll promotions
   useEffect(() => {
     const interval = setInterval(() => {
       let nextIndex = currentIndex + 1;
@@ -58,7 +57,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  const handleNext = (item) => {
+  const handleNext = (item:any) => {
     router.push({
       pathname: "/RestaurantDetails/RestaurantDetails",
       params: item,
