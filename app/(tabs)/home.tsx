@@ -24,7 +24,7 @@ export default function Home() {
   const [activeFilter, setActiveFilter] = useState("Restaurant");
   const [searchText, setSearchText] = useState("");
   const [location, setLocation] = useState("Fetching location...");
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<ScrollView | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const promotions = [
@@ -89,7 +89,7 @@ export default function Home() {
     })();
   }, []);
 
-  const handleNext = (item) => {
+  const handleNext = (item : any) => {
     router.push({
       pathname: "/RestaurantDetails/RestaurantDetails",
       params: item,
