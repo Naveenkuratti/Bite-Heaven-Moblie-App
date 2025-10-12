@@ -10,7 +10,9 @@ import {
   StatusBar,
   StyleSheet,
   Dimensions,
+  ActivityIndicator,
 } from "react-native";
+import * as Location from "expo-location";
 import Feather from "react-native-vector-icons/Feather";
 import { router } from "expo-router";
 
@@ -20,9 +22,10 @@ const ITEM_WIDTH = width * 0.8;
 export default function Rooms() {
   const [activeFilter, setActiveFilter] = useState("Room");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [location, setLocation] = useState<string | null>(null);
+  const [loadingLocation, setLoadingLocation] = useState(true);
   const scrollRef = useRef<ScrollView>(null);
 
-  // Updated paths
   const promotions = [
     { image: require("../../assets/images/rooms1.png"), title: "Special Deals" },
     { image: require("../../assets/images/rooms2.png"), title: "Walk-In Offers" },
@@ -50,7 +53,32 @@ export default function Rooms() {
     },
   ];
 
-  // Auto-scroll promotions
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setLocation("Permission Denied");
+        setLoadingLocation(false);
+        return;
+      }
+
+      const loc = await Location.getCurrentPositionAsync({});
+      const geo = await Location.reverseGeocodeAsync({
+        latitude: loc.coords.latitude,
+        longitude: loc.coords.longitude,
+      });
+
+      if (geo.length > 0) {
+        const { city, region } = geo[0];
+        setLocation(`${city || "Unknown City"}, ${region || ""}`);
+      } else {
+        setLocation("Unknown Location");
+      }
+      setLoadingLocation(false);
+    })();
+  }, []);
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       let nextIndex = currentIndex + 1;
@@ -73,7 +101,14 @@ export default function Rooms() {
         <View style={styles.header}>
           <View style={styles.headerTop}>
             <View style={styles.locationContainer}>
-              <Text style={styles.locationText}>Location</Text>
+              <Feather name="map-pin" size={18} color="black" style={{ marginRight: 5 }} />
+              {loadingLocation ? (
+                <ActivityIndicator size="small" color="#000" />
+              ) : (
+                <Text style={styles.locationText}>
+                  {location || "Location not available"}
+                </Text>
+              )}
               <Feather name="chevron-down" size={20} color="black" />
             </View>
           </View>
@@ -87,12 +122,7 @@ export default function Rooms() {
               placeholder="Search for restaurants & rooms"
             />
             <View style={styles.searchIconsContainer}>
-              <Feather
-                name="search"
-                size={20}
-                color="black"
-                style={styles.searchIcon}
-              />
+              <Feather name="search" size={20} color="black" style={styles.searchIcon} />
               <Feather name="mic" size={20} color="black" />
             </View>
           </View>
@@ -136,11 +166,7 @@ export default function Rooms() {
         <View style={styles.offeringsContainer}>
           {promotions.map((item, index) => (
             <TouchableOpacity key={index} style={styles.offeringItem}>
-              <Image
-                source={item.image}
-                style={styles.offeringImage}
-                resizeMode="cover"
-              />
+              <Image source={item.image} style={styles.offeringImage} resizeMode="cover" />
               <Text style={styles.offeringText}>{item.title}</Text>
             </TouchableOpacity>
           ))}
@@ -188,11 +214,7 @@ export default function Rooms() {
           <Text style={styles.sectionTitle}>ALL ROOMS</Text>
           {rooms.map((room, index) => (
             <View key={index} style={styles.roomCard}>
-              <Image
-                source={room.image}
-                style={styles.roomImage}
-                resizeMode="cover"
-              />
+              <Image source={room.image} style={styles.roomImage} resizeMode="cover" />
               <View style={{ marginTop: 5 }}>
                 <Text style={{ fontWeight: "bold" }}>{room.name}</Text>
                 <Text style={{ fontSize: 12, color: "gray" }}>{room.description}</Text>

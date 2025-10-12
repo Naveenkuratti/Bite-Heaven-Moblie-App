@@ -10,9 +10,12 @@ import {
   SafeAreaView,
   StatusBar,
   Dimensions,
+  Alert,
+  Platform,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
+import * as Location from "expo-location";
 
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = width * 0.8;
@@ -20,6 +23,7 @@ const ITEM_WIDTH = width * 0.8;
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("Restaurant");
   const [searchText, setSearchText] = useState("");
+  const [location, setLocation] = useState("Fetching location...");
   const scrollRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -46,6 +50,7 @@ export default function Home() {
     },
   ];
 
+  // 🔹 Auto-scroll promotions
   useEffect(() => {
     const interval = setInterval(() => {
       let nextIndex = currentIndex + 1;
@@ -53,18 +58,44 @@ export default function Home() {
       setCurrentIndex(nextIndex);
       scrollRef.current?.scrollTo({ x: nextIndex * ITEM_WIDTH, animated: true });
     }, 3000);
-
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  const handleNext = (item:any) => {
+  // 🔹 Get current location
+  useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert("Permission Denied", "Allow location access to display your area.");
+        setLocation("Permission denied");
+        return;
+      }
+
+      const currentLoc = await Location.getCurrentPositionAsync({});
+      const { latitude, longitude } = currentLoc.coords;
+
+      // Reverse geocode to get city name
+      const [place] = await Location.reverseGeocodeAsync({
+        latitude,
+        longitude,
+      });
+
+      if (place) {
+        const city = place.city || place.district || place.region || "Unknown";
+        setLocation(city);
+      } else {
+        setLocation(`${latitude.toFixed(2)}, ${longitude.toFixed(2)}`);
+      }
+    })();
+  }, []);
+
+  const handleNext = (item) => {
     router.push({
       pathname: "/RestaurantDetails/RestaurantDetails",
       params: item,
     });
   };
 
-  // Placeholder mic function
   const handleMicPress = () => {
     alert("Mic pressed! Voice input not available in Expo managed workflow.");
   };
@@ -77,8 +108,11 @@ export default function Home() {
         <View style={styles.header}>
           <View style={styles.headerTop}>
             <View style={styles.locationContainer}>
-              <Text style={styles.locationText}>Location</Text>
-              <Feather name="chevron-down" size={20} color="black" />
+              <Feather name="map-pin" size={18} color="black" />
+              <Text style={styles.locationText}>
+                {location}
+              </Text>
+              <Feather name="chevron-down" size={18} color="black" />
             </View>
           </View>
 
@@ -131,8 +165,7 @@ export default function Home() {
 
         {/* Offerings */}
         <View style={styles.offeringsContainer}>
-          {[
-            { label: "Special Deals", image: require("../../assets/images/User1.png") },
+          {[{ label: "Special Deals", image: require("../../assets/images/User1.png") },
             { label: "Walk-In Offers", image: require("../../assets/images/User3.png") },
             { label: "Group Bookings", image: require("../../assets/images/User4.png") },
           ].map((item, index) => (
@@ -195,7 +228,7 @@ const styles = StyleSheet.create({
   header: { backgroundColor: "#FFCB05", padding: 15 },
   headerTop: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
   locationContainer: { flexDirection: "row", alignItems: "center" },
-  locationText: { fontSize: 16, fontWeight: "bold", marginRight: 5 },
+  locationText: { fontSize: 16, fontWeight: "bold", marginHorizontal: 5 },
   title: { fontSize: 28, fontWeight: "bold", textAlign: "center", marginVertical: 10 },
   searchContainer: { flexDirection: "row", backgroundColor: "white", borderRadius: 25, alignItems: "center", paddingHorizontal: 15, marginVertical: 10 },
   searchInput: { flex: 1, height: 40 },
