@@ -12,7 +12,9 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Allow Bite Heaven to access your location to show nearby restaurants and offers.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow Bite Heaven to access your location even when the app is running in the background."
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow Bite Heaven to access your location even when the app is running in the background.",
+        "NSMicrophoneUsageDescription": "Allow Bite Heaven to access your microphone for voice search.",
+        "NSSpeechRecognitionUsageDescription": "Allow Bite Heaven to recognize your speech for voice search."
       }
     },
     "android": {
@@ -57,7 +59,8 @@
           "locationAlwaysAndWhenInUsePermission": "Allow Bite Heaven to access your location to show nearby restaurants and offers."
         }
       ],
-      "expo-router"
+      "expo-router",
+      "expo-speech-recognition"
     ],
     "experiments": {
       "typedRoutes": true

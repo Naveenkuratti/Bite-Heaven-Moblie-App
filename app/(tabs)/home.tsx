@@ -11,7 +11,6 @@ import {
   StatusBar,
   Dimensions,
   Alert,
-  Platform,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -50,7 +49,7 @@ export default function Home() {
     },
   ];
 
-  // 🔹 Auto-scroll promotions
+  // Auto-scroll promotions
   useEffect(() => {
     const interval = setInterval(() => {
       let nextIndex = currentIndex + 1;
@@ -61,7 +60,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  // 🔹 Get current location
+  // Get current location
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -74,11 +73,7 @@ export default function Home() {
       const currentLoc = await Location.getCurrentPositionAsync({});
       const { latitude, longitude } = currentLoc.coords;
 
-      // Reverse geocode to get city name
-      const [place] = await Location.reverseGeocodeAsync({
-        latitude,
-        longitude,
-      });
+      const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
 
       if (place) {
         const city = place.city || place.district || place.region || "Unknown";
@@ -89,15 +84,19 @@ export default function Home() {
     })();
   }, []);
 
-  const handleNext = (item : any) => {
+  const handleNext = (item: any) => {
     router.push({
       pathname: "/RestaurantDetails/RestaurantDetails",
       params: item,
     });
   };
 
+  // Mic press (Expo Go safe)
   const handleMicPress = () => {
-    alert("Mic pressed! Voice input not available in Expo managed workflow.");
+    Alert.alert(
+      "Voice Input",
+      "Voice input is only available in a custom dev client or bare workflow."
+    );
   };
 
   return (
@@ -109,9 +108,7 @@ export default function Home() {
           <View style={styles.headerTop}>
             <View style={styles.locationContainer}>
               <Feather name="map-pin" size={18} color="black" />
-              <Text style={styles.locationText}>
-                {location}
-              </Text>
+              <Text style={styles.locationText}>{location}</Text>
               <Feather name="chevron-down" size={18} color="black" />
             </View>
           </View>
@@ -165,7 +162,8 @@ export default function Home() {
 
         {/* Offerings */}
         <View style={styles.offeringsContainer}>
-          {[{ label: "Special Deals", image: require("../../assets/images/User1.png") },
+          {[
+            { label: "Special Deals", image: require("../../assets/images/User1.png") },
             { label: "Walk-In Offers", image: require("../../assets/images/User3.png") },
             { label: "Group Bookings", image: require("../../assets/images/User4.png") },
           ].map((item, index) => (
@@ -186,7 +184,10 @@ export default function Home() {
             contentContainerStyle={{ paddingHorizontal: (width - ITEM_WIDTH) / 2 }}
           >
             {promotions.map((item, index) => (
-              <View key={index} style={{ width: ITEM_WIDTH, alignItems: "center", marginRight: 10 }}>
+              <View
+                key={index}
+                style={{ width: ITEM_WIDTH, alignItems: "center", marginRight: 10 }}
+              >
                 <Image source={item.image} style={styles.promotionImage} />
                 <Text style={styles.promotionTitle}>{item.title}</Text>
               </View>
@@ -208,7 +209,11 @@ export default function Home() {
         <View style={styles.allRestaurantsContainer}>
           <Text style={styles.sectionTitle}>ALL RESTAURANTS</Text>
           {restaurants.map((item, index) => (
-            <TouchableOpacity key={index} style={styles.restaurantCard} onPress={() => handleNext(item)}>
+            <TouchableOpacity
+              key={index}
+              style={styles.restaurantCard}
+              onPress={() => handleNext(item)}
+            >
               <Image source={item.image} style={styles.restaurantImage} />
               <View style={{ marginTop: 5 }}>
                 <Text style={{ fontWeight: "bold" }}>{item.name}</Text>
@@ -230,7 +235,14 @@ const styles = StyleSheet.create({
   locationContainer: { flexDirection: "row", alignItems: "center" },
   locationText: { fontSize: 16, fontWeight: "bold", marginHorizontal: 5 },
   title: { fontSize: 28, fontWeight: "bold", textAlign: "center", marginVertical: 10 },
-  searchContainer: { flexDirection: "row", backgroundColor: "white", borderRadius: 25, alignItems: "center", paddingHorizontal: 15, marginVertical: 10 },
+  searchContainer: {
+    flexDirection: "row",
+    backgroundColor: "white",
+    borderRadius: 25,
+    alignItems: "center",
+    paddingHorizontal: 15,
+    marginVertical: 10,
+  },
   searchInput: { flex: 1, height: 40 },
   searchIconsContainer: { flexDirection: "row", alignItems: "center" },
   searchIcon: { marginRight: 10 },
@@ -242,7 +254,12 @@ const styles = StyleSheet.create({
   dividerContainer: { flexDirection: "row", alignItems: "center", marginVertical: 10 },
   divider: { flex: 1, height: 1, backgroundColor: "#ccc" },
   dividerText: { fontSize: 14, fontWeight: "bold", marginHorizontal: 10 },
-  offeringsContainer: { flexDirection: "row", justifyContent: "space-between", marginVertical: 10, paddingHorizontal: 15 },
+  offeringsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 10,
+    paddingHorizontal: 15,
+  },
   offeringItem: { alignItems: "center", flex: 1 },
   offeringImage: { width: 80, height: 80, borderRadius: 10 },
   offeringText: { marginTop: 5, fontSize: 12, textAlign: "center" },
