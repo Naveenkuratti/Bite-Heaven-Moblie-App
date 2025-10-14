@@ -79,7 +79,7 @@ const RegisterRestaurant = () => {
         </View>
       )}
 
-      {/* Info Section */}
+     
       <View style={styles.infoSection}>
         <Text style={styles.infoTitle}>Get Started – it only takes 10 minutes</Text>
         <Text style={styles.listItem}>✔ Restaurant name and address</Text>
