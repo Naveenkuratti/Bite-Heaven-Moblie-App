@@ -205,7 +205,7 @@ export default function Home() {
           </View>
         </View>
 
-        {/* Restaurants List */}
+  
         <View style={styles.allRestaurantsContainer}>
           <Text style={styles.sectionTitle}>ALL RESTAURANTS</Text>
           {restaurants.map((item, index) => (
