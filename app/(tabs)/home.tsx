@@ -174,7 +174,7 @@ export default function Home() {
           ))}
         </View>
 
-        {/* Promotions */}
+       
         <View style={styles.promotionContainer}>
           <ScrollView
             horizontal
@@ -194,7 +194,6 @@ export default function Home() {
             ))}
           </ScrollView>
 
-          {/* Pagination */}
           <View style={styles.pagination}>
             {promotions.map((_, index) => (
               <View
