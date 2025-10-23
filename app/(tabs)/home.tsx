@@ -115,7 +115,7 @@ export default function Home() {
 
           <Text style={styles.title}>Bite Heaven</Text>
 
-          {/* Search */}
+         
           <View style={styles.searchContainer}>
             <TextInput
               style={styles.searchInput}
@@ -153,7 +153,7 @@ export default function Home() {
           </View>
         </View>
 
-        {/* Divider */}
+       
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
           <Text style={styles.dividerText}>EXCLUSIVE OFFERINGS</Text>
