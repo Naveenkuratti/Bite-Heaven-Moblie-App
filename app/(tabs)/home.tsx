@@ -160,7 +160,7 @@ export default function Home() {
           <View style={styles.divider} />
         </View>
 
-        {/* Offerings */}
+      
         <View style={styles.offeringsContainer}>
           {[
             { label: "Special Deals", image: require("../../assets/images/User1.png") },
@@ -176,7 +176,7 @@ export default function Home() {
 
        
         <View style={styles.promotionContainer}>
-          <ScrollView
+          <ScrollView 
             horizontal
             ref={scrollRef}
             pagingEnabled
