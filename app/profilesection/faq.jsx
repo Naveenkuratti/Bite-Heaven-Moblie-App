@@ -63,7 +63,7 @@ const HelpScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Back Button */}
+    
       <TouchableOpacity onPress={handleBack} style={styles.backButton}>
         <Ionicons name="arrow-back" size={24} color="#007AFF" />
         <Text style={styles.backText}>Back</Text>
