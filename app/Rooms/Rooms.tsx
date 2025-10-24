@@ -198,7 +198,6 @@ export default function Rooms() {
             ))}
           </ScrollView>
 
-          {/* Pagination */}
           <View style={styles.pagination}>
             {promotions.map((_, index) => (
               <View
