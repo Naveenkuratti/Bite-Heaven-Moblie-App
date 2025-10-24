@@ -115,7 +115,7 @@ export default function Rooms() {
 
           <Text style={styles.title}>Bite Heaven</Text>
 
-          {/* Search */}
+          
           <View style={styles.searchContainer}>
             <TextInput
               style={styles.searchInput}
