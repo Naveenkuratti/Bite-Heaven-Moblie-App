@@ -172,7 +172,7 @@ export default function Rooms() {
           ))}
         </View>
 
-        {/* Auto-scroll Promotions */}
+        
         <View style={styles.promotionContainer}>
           <ScrollView
             horizontal
