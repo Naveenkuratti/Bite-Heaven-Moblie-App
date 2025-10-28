@@ -160,7 +160,6 @@ export default function Rooms() {
           <View style={styles.divider} />
         </View>
 
-        {/* Offerings */}
         <View style={styles.offeringsContainer}>
           {promotions.map((item, index) => (
             <TouchableOpacity key={index} style={styles.offeringItem}>
