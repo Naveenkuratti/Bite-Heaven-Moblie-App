@@ -60,7 +60,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  // Get current location
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
