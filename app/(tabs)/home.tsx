@@ -49,7 +49,7 @@ export default function Home() {
     },
   ];
 
-  // Auto-scroll promotions
+
   useEffect(() => {
     const interval = setInterval(() => {
       let nextIndex = currentIndex + 1;
