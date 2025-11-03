@@ -90,7 +90,7 @@ export default function Home() {
     });
   };
 
-  // Mic press (Expo Go safe)
+ 
   const handleMicPress = () => {
     Alert.alert(
       "Voice Input",
