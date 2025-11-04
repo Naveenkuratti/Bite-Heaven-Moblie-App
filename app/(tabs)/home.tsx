@@ -130,7 +130,7 @@ export default function Home() {
             </View>
           </View>
 
-          {/* Filter */}
+         
           <Text style={styles.filterText}>Filter by Type</Text>
           <View style={styles.filterOptions}>
             <TouchableOpacity
