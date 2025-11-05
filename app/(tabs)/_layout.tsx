@@ -28,7 +28,6 @@ export default function TabLayout() {
         }}
       />
 
-      {/* Scanner Tab (floating center icon) */}
       <Tabs.Screen
         name="scanner"
         options={{
