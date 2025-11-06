@@ -20,7 +20,7 @@ export default function TabLayout() {
         },
       }}
     >
-      {/* Home Tab */}
+    
       <Tabs.Screen
         name="home"
         options={{
