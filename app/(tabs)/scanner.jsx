@@ -23,7 +23,7 @@ export default function Scanner() {
   const appState = useRef(AppState.currentState);
   const scanLineAnim = useRef(new Animated.Value(0)).current;
 
-  // Scan line animation
+  
   useEffect(() => {
     if (!scannedData) {
       Animated.loop(
