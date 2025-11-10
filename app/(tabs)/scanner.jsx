@@ -99,7 +99,7 @@ export default function Scanner() {
             barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
             onBarcodeScanned={handleBarCodeScanned}
           />
-          {/* Overlay frame */}
+         
           <View style={styles.overlay}>
             <View style={styles.topBottomOverlay} />
             <View style={styles.middleRow}>
