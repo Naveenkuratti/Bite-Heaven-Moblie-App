@@ -113,7 +113,7 @@ export default function Scanner() {
                         {
                           translateY: scanLineAnim.interpolate({
                             inputRange: [0, 1],
-                            outputRange: [0, 200], // adjust according to frame height
+                            outputRange: [0, 200], 
                           }),
                         },
                       ],
