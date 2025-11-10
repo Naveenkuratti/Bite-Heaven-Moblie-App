@@ -45,7 +45,7 @@ export default function Scanner() {
     }
   }, [scannedData]);
 
-  // Unlock scanning when app returns to foreground
+  
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (nextAppState) => {
       if (
