@@ -31,7 +31,7 @@ export async function verifyOtp(token: string, enteredOtp: number): Promise<Opt 
     }
 }
 
-// Example Usage
+
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTc4OTkxMTMyNDciLCJvdHAiOjIyMDA1MywiaWF0IjoxNzQyNzAwNDc0LCJleHAiOjE3NDI3MDQwNzR9.e1dzFxJpgbf5J921SLFGrb7Clcn7a6b4jQpGJkFSmUk";
 const otp = 220053;
 
