@@ -6,7 +6,7 @@ Bite-Heaven-Mobile-App is a full-featured hotel and restaurant management applic
                                                                                                                                                                                                                                                                              
 Features                                                                                                    
 ✅ User Authentication (Login, Signup, Forgot Password)                                        
-✅ Table & Room Reservations (Real-time availability updates)          
+✅ Table & Room Reservations (Real-time availability updates)                                    
 ✅ Menu Management (Dishes, categories, pricing updates)        
 ✅ Order Management (Takeaway, dine-in, delivery tracking)                                                                            
 ✅ Payment Integration (Stripe, Razorpay, etc.)
