@@ -1,31 +1,58 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
-import { useRouter } from 'expo-router';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import { useRouter } from "expo-router";
 
-
-import SplashScreen from './../Button/SplashScreen';
-const router = useRouter(); 
 const RestaurantAddressForm = () => {
-  
+  // ✅ Hook MUST be inside the component
+  const router = useRouter();
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-           <View style={styles.stepIndicator}>
-              <Text style={styles.stepText}>3 of 3</Text>
-            </View>
+      <View style={styles.stepIndicator}>
+        <Text style={styles.stepText}>3 of 3</Text>
+      </View>
+
       <Text style={styles.header}>Restaurant Information</Text>
 
-      <TextInput style={styles.input} placeholder="Shop no./ building no. (optional)" />
-      <TextInput style={styles.input} placeholder="Floor / tower (optional)" />
-      <TextInput style={styles.input} placeholder="Area /Sector /Locality*" />
-      <TextInput style={styles.input} placeholder="City*" />
-      <TextInput style={styles.input} placeholder="Add any nearby landmark (optional)" />
-      
-      <TouchableOpacity style={styles.button}onPress={() => router.push('/Button/SplashScreen')}>
+      <TextInput
+        style={styles.input}
+        placeholder="Shop no./ building no. (optional)"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Floor / tower (optional)"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Area / Sector / Locality*"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="City*"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Add any nearby landmark (optional)"
+      />
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/Button/SplashScreen")}
+      >
         <Text style={styles.buttonText}>Save restaurant address</Text>
       </TouchableOpacity>
     </ScrollView>
   );
 };
+
+export default RestaurantAddressForm;
 
 const styles = StyleSheet.create({
   container: {
@@ -49,12 +76,12 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   button: {
-    backgroundColor: '#FF6B2C',
+    backgroundColor: "#FF6B2C",
     padding: 20,
     borderRadius: 8,
-    alignItems: 'center',
-    marginTop: 'auto',
-   bottom:30,
+    alignItems: "center",
+    marginTop: "auto",
+    bottom: 30,
   },
   buttonText: {
     color: "#fff",
@@ -63,17 +90,13 @@ const styles = StyleSheet.create({
   },
   stepText: {
     fontSize: 12,
-    color: '#333',
+    color: "#333",
   },
   stepIndicator: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 5,  // Reduced border radius for a smaller appearance
-    paddingHorizontal: 3,  // Reduced horizontal padding
-    paddingVertical: 2,
-    left:300,  
-    top:20,// Reduced vertical padding
-  }
-  
+    backgroundColor: "#f5f5f5",
+    borderRadius: 5,
+    paddingHorizontal: 6,
+    paddingVertical: 3,
+    alignSelf: "flex-end",
+  },
 });
-
-export default RestaurantAddressForm;
