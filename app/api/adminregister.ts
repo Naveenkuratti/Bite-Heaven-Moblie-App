@@ -22,7 +22,7 @@ export async function registerAdmin(data: { name: string; phone: string; email: 
 
     console.log("✅ Manager registered successfully:", responseBody);
     return { success: true, data: responseBody };
-  } catch (error: any) {
+       } catch (error: any) {
     console.error("🚨 Registration Error:", error.message || error);
     throw new Error(error.message || "⚠️ Registration failed. Please try again.");
   }
