@@ -1,9 +1,9 @@
-export async function registerAdmin(data: { name: string; phone: string; email: string; password: string }) {
-  console.log("📤 Sending Registration Request:", JSON.stringify(data, null, 2));
+   export async function registerAdmin(data: { name: string; phone: string; email: string; password: string }) {
+   console.log("📤 Sending Registration Request:", JSON.stringify(data, null, 2));
 
-  const url = "https://bite-heaven.onrender.com/api/auth/manager/register";
+   const url = "https://bite-heaven.onrender.com/api/auth/manager/register";
 
-  try {
+   try {
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

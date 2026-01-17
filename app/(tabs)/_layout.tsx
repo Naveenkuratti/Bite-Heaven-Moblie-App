@@ -11,7 +11,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          height: 60,
+          height: 80,
           backgroundColor: "#fff",
           borderTopWidth: 0.5,
           borderColor: "#ddd",
@@ -24,7 +24,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          tabBarIcon: () => <FontAwesome name="home" size={24} color="black" />,
+          tabBarIcon: () => <FontAwesome name="home" size={30} color="black" />,
         }}
       />
 
@@ -34,14 +34,14 @@ export default function TabLayout() {
           tabBarIcon: () => (
             <View
               style={{
-                bottom: 15,
+                bottom: 19,
                 backgroundColor: "#FFD700",
-                borderRadius: 40,
-                padding: 10,
+                borderRadius: -90,
+                padding: -100,
                 shadowColor: "#000",
-                shadowOpacity: 0.3,
-                shadowRadius: 5,
-                shadowOffset: { width: 0, height: 3 },
+                shadowOpacity: 8,
+                shadowRadius: 90,
+                shadowOffset: { width: 10, height: 90 },
                 elevation: 6,
               }}
             >
@@ -55,7 +55,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
+          tabBarIcon: () => <Ionicons name="person" size={30} color="black" />,
         }}
       />
     </Tabs>
