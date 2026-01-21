@@ -20,14 +20,17 @@ export default function TabLayout() {
         },
       }}
     >
-    
+      {/* HOME */}
       <Tabs.Screen
         name="home"
         options={{
-          tabBarIcon: () => <FontAwesome name="home" size={30} color="black" />,
+          tabBarIcon: () => (
+            <FontAwesome name="home" size={30} color="black" />
+          ),
         }}
       />
 
+      {/* SCANNER */}
       <Tabs.Screen
         name="scanner"
         options={{
@@ -36,12 +39,8 @@ export default function TabLayout() {
               style={{
                 bottom: 19,
                 backgroundColor: "#FFD700",
-                borderRadius: -90,
-                padding: -100,
-                shadowColor: "#000",
-                shadowOpacity: 8,
-                shadowRadius: 90,
-                shadowOffset: { width: 10, height: 90 },
+                borderRadius: 50,
+                padding: 15,
                 elevation: 6,
               }}
             >
@@ -50,12 +49,22 @@ export default function TabLayout() {
           ),
         }}
       />
-           
-      
+
+      {/* PROFILE */}
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarIcon: () => <Ionicons name="person" size={30} color="black" />,
+          tabBarIcon: () => (
+            <Ionicons name="person" size={30} color="black" />
+          ),
+        }}
+      />
+
+      
+      <Tabs.Screen
+        name="Rooms"
+        options={{
+          href: null, // ✅ removes Rooms from tab bar ONLY
         }}
       />
     </Tabs>
