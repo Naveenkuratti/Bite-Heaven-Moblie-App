@@ -144,7 +144,7 @@ export default function Home() {
               style={[styles.filterOption, activeFilter === "Room" && styles.activeFilter]}
               onPress={() => {
                 setActiveFilter("Room");
-                router.push("/Rooms/Rooms");
+                router.push("/(tabs)/Rooms");
               }}
             >
               <Text style={styles.filterOptionText}>Room</Text>
