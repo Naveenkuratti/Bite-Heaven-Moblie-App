@@ -23,7 +23,7 @@ const AddFoodImagesScreen = () => {
   const currentStep = 2;
   const totalSteps = 7;
 
-  // 📸 Pick image from gallery
+  
   const handleImagePick = async () => {
     const permission =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
