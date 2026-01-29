@@ -2,18 +2,20 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { ArrowLeft } from 'react-native-feather';
 import { useRouter } from 'expo-router';
-const router = useRouter(); 
 
 const Nextpage2 = () => {
-    
+  // ✅ Hook INSIDE component
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-     
       <View style={styles.header}>
-         <TouchableOpacity onPress={() => router.push('/Service')}>
-                    <ArrowLeft size={24} />
-                  </TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push('/Service')}>
+          <ArrowLeft size={24} />
+        </TouchableOpacity>
+
         <Text style={styles.headerText}>Restaurant Information</Text>
+
         <View style={styles.stepIndicator}>
           <Text style={styles.stepText}>2 of 3</Text>
         </View>
@@ -24,14 +26,12 @@ const Nextpage2 = () => {
         Bite Heaven will use these details for all business communications and updates
       </Text>
 
-  
       <TextInput
         style={styles.input}
         placeholder="Full Name*"
         placeholderTextColor="#999"
       />
 
-      {/* Email Input */}
       <TextInput
         style={styles.input}
         placeholder="Email address*"
@@ -39,7 +39,6 @@ const Nextpage2 = () => {
         placeholderTextColor="#999"
       />
 
-     
       <View style={styles.phoneContainer}>
         <Text style={styles.countryCode}>+91</Text>
         <TextInput
@@ -53,13 +52,17 @@ const Nextpage2 = () => {
         </TouchableOpacity>
       </View>
 
-     
-      <TouchableOpacity style={styles.nextButton} onPress={() => router.push('/RestaurantInformation/Screen3')}>
+      <TouchableOpacity
+        style={styles.nextButton}
+        onPress={() => router.push('/RestaurantInformation/Screen3')}
+      >
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+export default Nextpage2;
 
 const styles = StyleSheet.create({
   container: {
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginTop: 'auto',
-   bottom:30,
+    bottom: 30,
   },
   nextButtonText: {
     color: '#fff',
@@ -151,5 +154,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default Nextpage2;
