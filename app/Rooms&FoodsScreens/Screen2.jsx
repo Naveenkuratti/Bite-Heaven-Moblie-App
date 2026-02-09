@@ -1,15 +1,16 @@
 'use client'
 
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import { ArrowLeft } from 'react-native-feather';
-import { useRouter } from 'expo-router';
-import Screen2 from './../Rooms&FoodsScreens/Screen2';
-const Information = () => {
-  const [restaurantName, setRestaurantName] = useState('');
-  const router = useRouter();
+    import React, { useState } from 'react';
+   import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+   import { ArrowLeft } from 'react-native-feather';
+   import { useRouter } from 'expo-router';
+   import Screen2 from './../Rooms&FoodsScreens/Screen2';
+   const Information = () => {
+    const [restaurantName, setRestaurantName] = useState('');
+   const router = useRouter();
 
-  const handleNext = () => {
+   const handleNext = () => {
+
     if (!restaurantName.trim()) {
      
       Alert.alert('Error', 'Please enter a valid restaurant name.');
@@ -17,9 +18,9 @@ const Information = () => {
     
       router.push('/RestaurantInformation/Screen2');
     }
-  };
+   };
 
-  return (
+   return (
     <View style={styles.container}>
    
       <View style={styles.header}>
