@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 const Forgot = () => {
-  // ✅ Hooks MUST be inside the component
+
   const [phoneNumber, setPhoneNumber] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
