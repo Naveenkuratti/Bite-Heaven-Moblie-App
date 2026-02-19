@@ -30,7 +30,6 @@ export default function TabLayout() {
         }}
       />
 
-      {/* SCANNER */}
       <Tabs.Screen
         name="scanner"
         options={{
