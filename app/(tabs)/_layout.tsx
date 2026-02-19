@@ -49,7 +49,6 @@ export default function TabLayout() {
         }}
       />
 
-      {/* PROFILE */}
       <Tabs.Screen
         name="profile"
         options={{
