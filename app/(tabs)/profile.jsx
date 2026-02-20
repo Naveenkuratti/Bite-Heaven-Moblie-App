@@ -44,7 +44,7 @@ export default function Profile() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        {/* Profile Header */}
+       
         <View style={styles.profileHeader}>
           <View style={styles.avatarPlaceholder} />
           <View style={styles.userInfo}>
