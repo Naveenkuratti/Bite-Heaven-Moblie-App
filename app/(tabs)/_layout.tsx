@@ -62,7 +62,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="Rooms"
         options={{
-          href: null, // ✅ removes Rooms from tab bar ONLY
+          href: null, 
         }}
       />
     </Tabs>
