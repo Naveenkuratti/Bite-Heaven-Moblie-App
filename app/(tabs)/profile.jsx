@@ -70,7 +70,7 @@ export default function Profile() {
           </TouchableOpacity>
         </View>
 
-        {/* Vouchers */}
+        
         <Text style={styles.sectionTitle}>Vouchers</Text>
         <TouchableOpacity style={styles.listItem}>
           <Text>Collected vouchers</Text>
