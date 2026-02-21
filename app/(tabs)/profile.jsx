@@ -56,7 +56,7 @@ export default function Profile() {
           </TouchableOpacity>
         </View>
 
-        {/* Bookings */}
+  
         <Text style={styles.sectionTitle}>All bookings</Text>
         <View style={styles.row}>
           <TouchableOpacity style={styles.card}>
