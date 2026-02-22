@@ -53,7 +53,7 @@ export default function Rooms() {
     },
   ];
 
-  /* LOCATION */
+ 
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
