@@ -79,7 +79,6 @@ export default function Rooms() {
     })();
   }, []);
 
-  /* AUTO SLIDER */
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % promotions.length;
