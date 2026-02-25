@@ -100,7 +100,7 @@ export default function Rooms() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 120 }} // 👈 IMPORTANT
       >
-        {/* HEADER */}
+       
         <View style={styles.header}>
           <View style={styles.locationContainer}>
             <Feather name="map-pin" size={18} color="black" />
