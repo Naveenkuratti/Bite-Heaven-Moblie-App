@@ -98,7 +98,7 @@ export default function Rooms() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 120 }} // 👈 IMPORTANT
+        contentContainerStyle={{ paddingBottom: 120 }} 
       >
        
         <View style={styles.header}>
