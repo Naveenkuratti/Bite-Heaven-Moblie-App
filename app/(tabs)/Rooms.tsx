@@ -126,7 +126,7 @@ export default function Rooms() {
             <Feather name="mic" size={20} style={{ marginLeft: 10 }} />
           </View>
 
-          {/* FILTER */}
+       
           <View style={styles.filterOptions}>
             <TouchableOpacity
               style={[
