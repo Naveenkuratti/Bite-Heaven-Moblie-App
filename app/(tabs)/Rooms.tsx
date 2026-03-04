@@ -164,7 +164,6 @@ export default function Rooms() {
           ))}
         </View>
 
-        {/* SLIDER */}
         <ScrollView
           horizontal
           pagingEnabled
