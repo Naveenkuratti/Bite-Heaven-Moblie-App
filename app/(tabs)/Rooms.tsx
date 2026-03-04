@@ -149,7 +149,6 @@ export default function Rooms() {
           </View>
         </View>
 
-        {/* OFFERS */}
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
           <Text style={styles.dividerText}>EXCLUSIVE OFFERINGS</Text>
