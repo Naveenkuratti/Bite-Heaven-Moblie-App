@@ -180,7 +180,6 @@ export default function Rooms() {
           ))}
         </ScrollView>
 
-        {/* DOTS */}
         <View style={styles.pagination}>
           {promotions.map((_, i) => (
             <View
