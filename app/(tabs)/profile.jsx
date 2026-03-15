@@ -127,7 +127,7 @@ export default function Profile() {
           )
         )}
 
-        {/* Logout */}
+        
         <TouchableOpacity
           style={styles.logout}
           onPress={() => setLogoutModalVisible(true)}
