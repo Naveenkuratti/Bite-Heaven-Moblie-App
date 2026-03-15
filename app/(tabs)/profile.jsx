@@ -112,7 +112,7 @@ export default function Profile() {
           )
         )}
 
-        {/* More */}
+     
         <Text style={styles.sectionTitle}>More</Text>
         {['Notification settings', 'Account settings', 'About us'].map(
           (item, idx) => (
