@@ -138,7 +138,6 @@ export default function Profile() {
         <Text style={styles.footerText}>Bite Heaven v1.0</Text>
       </ScrollView>
 
-      {/* Logout Modal */}
       <Modal
         transparent
         visible={logoutModalVisible}
