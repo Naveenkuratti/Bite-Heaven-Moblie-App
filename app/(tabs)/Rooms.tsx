@@ -189,7 +189,7 @@ export default function Rooms() {
           ))}
         </View>
 
-        {/* ROOMS */}
+       
         <View style={styles.allRoomsContainer}>
           <Text style={styles.sectionTitle}>ALL ROOMS</Text>
           {rooms.map((room, index) => (
