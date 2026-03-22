@@ -41,7 +41,7 @@ export default function About() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffeef2', // Light pink background
+    backgroundColor: '#ffeef2', 
     paddingTop: 40,
     paddingHorizontal: 20,
   },
