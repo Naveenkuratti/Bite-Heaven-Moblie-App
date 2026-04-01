@@ -20,7 +20,7 @@ export default function About() {
         <Text style={styles.headerTitle}>About us</Text>
       </View>
 
-      {/* Cards */}
+    
       <View style={styles.cardContainer}>
         <TouchableOpacity style={styles.card}>
           <MaterialIcons name="article" size={20} color="#000" />
