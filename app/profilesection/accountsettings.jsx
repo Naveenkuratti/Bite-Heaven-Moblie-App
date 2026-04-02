@@ -25,7 +25,7 @@ export default function AccountSettings() {
   const confirmDelete = () => {
     setModalVisible(false);
     console.log('Account deletion confirmed');
-    // Call API or logic to delete account
+    
   };
 
   return (
