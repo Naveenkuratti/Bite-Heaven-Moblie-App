@@ -30,7 +30,7 @@ export default function AccountSettings() {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
+     
       <View style={styles.header}>
         <TouchableOpacity onPress={handleBack}>
           <Ionicons name="arrow-back" size={24} color="#000" />
