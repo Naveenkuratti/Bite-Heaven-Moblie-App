@@ -44,7 +44,7 @@ export default function AccountSettings() {
         <Text style={styles.buttonText}>Delete account</Text>
       </TouchableOpacity>
 
-      {/* Modal */}
+      
       <Modal transparent={true} visible={modalVisible} animationType="fade">
         <View style={styles.modalBackground}>
           <View style={styles.modalBox}>
