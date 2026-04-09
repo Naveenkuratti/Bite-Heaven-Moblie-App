@@ -38,7 +38,7 @@ export default function AccountSettings() {
         <Text style={styles.headerTitle}>Account Settings</Text>
       </View>
 
-      {/* Delete Button */}
+     
       <TouchableOpacity style={styles.button} onPress={handleDeletePress}>
         <MaterialIcons name="delete" size={20} color="#000" />
         <Text style={styles.buttonText}>Delete account</Text>
